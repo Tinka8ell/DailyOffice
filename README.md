@@ -1,9 +1,9 @@
 # DailyOffice
 Responsive Daily Office Single Page App
 
-## Day
+## Day (app?)
 
-Each day we have four offices:
+Each day we have one of four offices:
 * Morning Prayer
 * Midday Prayer
 * Evening Prayer
@@ -12,68 +12,125 @@ Each day we have four offices:
 ## Office
 
 Each office is made up of:
-* Header
-  * Title
-    * Heading (1) consisting of:
-      * Name (Office)
-      * Day 
-  * Navigator 
-    * Previous day button
-      * Date - 1
-    * Previous office button
-      * Office - 1
-      * If (office < Morning (0))
-        * Date - 1
-        * Office = Compline (Offices - 1)
-    * Specific
-      * Input field:
-        * Date
-        * Time
-          * Morning (4 am - 11 am)
-            * Midday (11 am - 5 pm)
-            * Evening  (5 pm - 8 pm)
-            * Compline (8 pm - 4 am)
-        * Update button
-      * Now button (if date / time not now)
-    * Next office button
-      * Office + 1
-      * If (office > Compline (Offices - 1))
-        * Date + 1
-        * Office = Morning (0)
-    * Next day button
-      * Date + 1
-* Body
-  * Sections - one of:
-    * Heading (size 2+)
-      * Text 
-    * Paragraph
-      * Lines
-        * Parts
-          * Text
-          * Emphasised text
-    * Bible reading (version, reference)
-      * Paragraphs
-      * Verse 
-        * Reference field
-        * Version field
-        * Update button
-    * Meditation
-      * Prayers
-        * Title (heading 3)
-        * Paragraphs
-        * Author (emphasised right aligned)
-    * Extended Bible Reading (either Daily or Yearly) (based on date)
-      * Link
-        * Text
-        * URL
-      * Bible Readings (expandable list)
-        * Reference
-          * Reference button (toggle)
-          * Bible reading (toggled)
-    * OMS Prayers (based on date?)
-      * Link
-    * World Watch List (based on day of year converted to top 50)
-      * Link
-      * Extracted Prayer
-* Footer
-  * Navigator 
+
+1. Header
+1. Body
+1. Footer
+
+## Header 
+
+The header contains: 
+
+* Title
+* Navigator 
+
+## Title
+
+Is basically a Heading (level 1) consisting of:
+1. Name (Of the Office)
+1. Day (of the week from date)
+
+## Navigator 
+
+Is a section of buttons and fields:
+
+1. Previous day button
+   * decrements the Date (- 1)
+1. Previous office button
+   * decrements to Office (- 1)
+   * If (Office < Morning (0))
+     * decrements the Date (- 1)
+     * set Office = Compline (Offices - 1)
+1. Specific
+   1. Input fields:
+      1. Date
+      1. Office - one of:
+         * Morning (4 am - 11 am)
+         * Midday (11 am - 5 pm)
+         * Evening  (5 pm - 8 pm)
+         * Compline (8 pm - 4 am)
+   1. Update button
+   1. Now button (if Date / Office not now)
+1. Next office button
+   * increments Office (+ 1)
+   * If (Office > Compline (Offices - 1))
+      * increments Date (+ 1)
+      * set Office = Morning (0)
+1. Next day button
+   * increments Date (+ 1)
+
+## Body
+
+Contains an array of sections.  Sections - one of:
+
+* Heading (size 2+)
+* Paragraph
+* Bible reading 
+* Meditation
+* Extended Bible Reading 
+* OMS Prayers 
+* World Watch List
+
+## Heading 
+
+A simple <h{size}> wrapper of:
+
+  * Text 
+
+## Paragraph
+
+Yet to be formalised, but something like and array of Lines seperated by <br/> separators.
+
+## Lines
+
+Made up of parts that are either:
+
+* Text
+* Emphasised text
+
+## Bible reading (version, reference)
+
+Made up of:
+
+1. Paragraphs
+1. VerseReference
+   1. Reference field / text
+   1. Version field / text
+   1. Change / Update button
+
+## Meditation
+
+One or more Prayers:
+
+1. Title (heading 3 optional)
+1. Paragraphs (1 or more)
+1. Author (emphasised right aligned)
+
+## Extended Bible Reading (either Daily or Yearly) (based on date)
+
+Consists of:
+
+1. Link (to sub-page?)
+   * Text
+   * URL
+1. Bible Readings (expandable list)
+   * Reference
+     1. Reference button (toggle on / off reading:)
+     2. Bible reading (toggled on or off)
+
+## OMS Prayers 
+
+Based on date?  Basically just a Link.
+
+## World Watch List 
+
+Based on day of year converted to top 50 and contains:
+
+* Link (country and number)
+* Extracted Prayer (Paragraph)
+
+## Footer
+
+The footer contains: 
+
+* Navigator (repeat of the header)
