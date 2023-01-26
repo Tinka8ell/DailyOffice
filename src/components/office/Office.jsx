@@ -1,9 +1,10 @@
 import { useState } from 'react'
+import { Header } from '../header/Header'
+import { Body } from '../body/Body'
+import { Footer } from '../footer/Footer'
 
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-
-import './Office.css'
 
 // const hours2Milliseconds = 60 * 60 * 60 * 1000
 const changeOvers = [
@@ -22,6 +23,7 @@ const startHour = changeOvers[0];
 const defaultOffice = {
     date: new Date(),
     office: changeOvers.length,
+    name: 'Missing',
 }
 
 export function Office() {
@@ -45,16 +47,29 @@ export function Office() {
             newOffice += changeOvers.length
             newDate.setDate(newDate.getDate -1)
         }
-        setOffice({ date: newDate, office: newOffice })
+        setOffice({ 
+            date: newDate, 
+            office: newOffice, 
+            name: officeStrings[newOffice],
+        })
     }
 
   return (
     <div className="Office">
-        <DatePicker 
-            selected={office.date} 
-            onChange={(date) => setOffice({ ...office, date })}
-        />
-        { officeStrings[office.office] }
+        <Header 
+            office={office}
+            setOffice={setOffice}
+        >
+
+        </Header>
+        <Body >
+
+        </Body>
+        <Footer 
+            office={office}
+            setOffice={setOffice}
+        >
+        </Footer>
     </div>
   )
 }
