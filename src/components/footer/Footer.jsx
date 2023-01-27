@@ -1,24 +1,14 @@
-import DatePicker from 'react-datepicker'
-import 'react-datepicker/dist/react-datepicker.css'
-import { registerLocale, setDefaultLocale } from  "react-datepicker";
-import enGB from 'date-fns/locale/en-GB';
-registerLocale('enGB', enGB)
+import { Navigator } from '../common/Navigator'
 
 export function Footer({ office, setOffice}) {
-    const notFuture = (date) => {
-        const now = new Date()
-        return date <= now
-    }
-    return (
+
+  return (
     <div className="Footer">
-        <DatePicker 
-            selected={office.date} 
-            onChange={(date) => setOffice({ ...office, date })}
-            dateFormat='dd/MM/yyyy'
-            filterDate={notFuture}
-            placeholderText="Cannot look at future dates"
-            />
-        { office.name }
+        <Navigator 
+            office={office}
+            setOffice={setOffice}
+        >
+        </Navigator>
     </div>
   )
 }

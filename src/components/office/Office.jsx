@@ -33,16 +33,14 @@ export function Office() {
     
     if (office.office >= changeOvers.length){ // not been set
         // todo: first check if we were passed a date / office
-        const hours = office.date.hours
+        const hours = office.date.getHours()
         let newOffice = changeOvers.length
         let newDate = office.date
         changeOvers.forEach((value, index) => {
-            if (hours < value - startHour){
+            if (hours >= value){
                 newOffice = index
             }
         });
-        // now: 0 (yesterday), 1, 2, 3 or 4
-        newOffice -= 1
         if (newOffice < 0){
             newOffice += changeOvers.length
             newDate.setDate(newDate.getDate -1)
