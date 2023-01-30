@@ -17,9 +17,10 @@ export function Office() {
             >
 
             </Header>
-            <Body >
-
-            </Body>
+            <Body 
+                office={office}
+                updateOffice={updateOffice}
+            />
             <Footer 
                 office={office}
                 updateOffice={updateOffice}

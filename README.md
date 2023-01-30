@@ -17,20 +17,20 @@ Each office is made up of:
 1. Body
 1. Footer
 
-## Header 
+## Header (done)
 
 The header contains: 
 
 * Title
 * Navigator 
 
-## Title
+## Title (done)
 
 Is basically a Heading (level 1) consisting of:
 1. Name (Of the Office)
 1. Day (of the week from date)
 
-## Navigator 
+## Navigator  (done)
 
 Is a section of buttons and fields:
 

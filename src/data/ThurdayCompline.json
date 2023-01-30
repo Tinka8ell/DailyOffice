@@ -1,0 +1,42 @@
+[
+    { 
+        "key": "MorningPrayers", 
+        "name": "MorningPrayers" 
+    },
+    { 
+        "key": "MiddayPrayers", 
+        "name": "MiddayPrayers" 
+    },
+    { 
+        "key": "EveningPrayers", 
+        "name": "EveningPrayers" 
+    },
+    { 
+        "key": "MondayCompline",
+        "name": "MondayCompline" 
+    },
+    { 
+        "key": "TuesdayCompline", 
+        "name": "TuesdayCompline" 
+    },
+    { 
+        "key": "WednesdayCompline", 
+        "name": "WednesdayCompline" 
+    },
+    { 
+        "key": "ThurdayCompline", 
+        "name": "ThurdayCompline" 
+    },
+    { 
+        "key": "FridayCompline", 
+        "name": "FridayCompline" 
+    },
+    { 
+        "key": "SaturdayCompline",
+        "name": "SaturdayCompline" 
+    },
+    { 
+        "key": "SundayCompline",
+        "name": "SundayCompline" 
+    }
+]
