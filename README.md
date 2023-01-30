@@ -4,10 +4,10 @@ Responsive Daily Office Single Page App
 ## Day (app?)
 
 Each day we have one of four offices:
-* Morning Prayer
-* Midday Prayer
-* Evening Prayer
-* Compline
+* Morning (4 am - 11 am)
+* Midday (11 am - 5 pm)
+* Evening  (5 pm - 8 pm)
+* {Day Name} Compline (8 pm - 4 am)
 
 ## Office
 
@@ -34,30 +34,19 @@ Is basically a Heading (level 1) consisting of:
 
 Is a section of buttons and fields:
 
-1. Previous day button
-   * decrements the Date (- 1)
-1. Previous office button
-   * decrements to Office (- 1)
-   * If (Office < Morning (0))
-     * decrements the Date (- 1)
-     * set Office = Compline (Offices - 1)
-1. Specific
-   1. Input fields:
-      1. Date
-      1. Office - one of:
-         * Morning (4 am - 11 am)
-         * Midday (11 am - 5 pm)
-         * Evening  (5 pm - 8 pm)
-         * Compline (8 pm - 4 am)
-   1. Update button
-   1. Now button (if Date / Office not now)
-1. Next office button
-   * increments Office (+ 1)
-   * If (Office > Compline (Offices - 1))
-      * increments Date (+ 1)
-      * set Office = Morning (0)
-1. Next day button
-   * increments Date (+ 1)
+1. Date Picker
+1. Office Selection:
+   1. Previous office button
+      * decrements to Office (- 1)
+      * If (Office < Morning (0))
+        * decrements the Date (- 1)
+        * set Office = Compline (Offices - 1)
+   1. Current Office Name
+   1. Next office button
+      * increments Office (+ 1)
+      * If (Office > Compline (Offices - 1))
+         * increments Date (+ 1)
+         * set Office = Morning (0)
 
 ## Body
 
