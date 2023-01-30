@@ -2,7 +2,7 @@ import { useState, forwardRef } from 'react'
 import DatePicker from 'react-datepicker'
 import '../../../node_modules/react-datepicker/dist/react-datepicker.css'
 
-export function Navigator({ office, setOffice}){
+export function Navigator({ office, updateOffice}){
 
   const notFuture = (date) => {
     const now = new Date()
@@ -19,26 +19,48 @@ export function Navigator({ office, setOffice}){
     })
   }
     
-  const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
-    <button 
-      className="example-custom-input" 
-      onClick={onClick} 
-      ref={ref}>
-      {formattedDate(value)}
-    </button>
-  ));
+  const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => {
+    return (
+      <button 
+        className="navigatior-date" 
+        onClick={onClick} 
+        ref={ref}>
+        {formattedDate(value)}
+      </button>
+    )
+  });
+
+  function previousOffice(){
+    const previous = { ...office }
+    previous.office -= 1
+    updateOffice(previous)
+  }
+
+  function nextOffice(){
+    const previous = { ...office }
+    previous.office += 1
+    updateOffice(previous)
+  }
 
   return (
-    <div chassname="navigator" >
+    <div className="navigator" >
       <DatePicker
         todayButton="Back to today"
         selected={office.date}
-        onChange={(date) => setOffice({ ...office, date })}
+        onChange={(date) => updateOffice({ ...office, date: new Date(date) })}
         customInput={<ExampleCustomInput />}
         dateFormat='d MMMM yyyy'
         filterDate={notFuture}
       />
-      { office.name }
+      <div className="office-selector">
+      <button onClick={previousOffice}>
+          &lt;
+        </button>
+        { office.name }
+        <button onClick={nextOffice}>
+          &gt;
+        </button>
+      </div>
     </div>
   );
 }

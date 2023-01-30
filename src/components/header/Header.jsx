@@ -1,6 +1,6 @@
 import { Navigator } from '../common/Navigator'
 
-export function Header({ office, setOffice}) {
+export function Header({ office, updateOffice}) {
   const formattedDate = office.date.toLocaleDateString('en-GB', {
     weekday: 'long', 
     year: 'numeric', 
@@ -18,7 +18,7 @@ export function Header({ office, setOffice}) {
       </h2>
         <Navigator 
             office={office}
-            setOffice={setOffice}
+            updateOffice={updateOffice}
         />
     </div>
   )

@@ -1,12 +1,12 @@
 import { Navigator } from '../common/Navigator'
 
-export function Footer({ office, setOffice}) {
+export function Footer({ office, updateOffice}) {
 
   return (
     <div className="Footer">
       <Navigator 
         office={office}
-        setOffice={setOffice}
+        updateOffice={updateOffice}
       />
     </div>
   )
