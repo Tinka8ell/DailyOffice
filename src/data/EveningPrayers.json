@@ -1,42 +1,32 @@
 [
     { 
-        "key": "MorningPrayers", 
-        "name": "MorningPrayers" 
+        "key": "1", 
+        "type": "heading",
+        "tag": "h1",
+        "text": "This is a level 1 heading"
     },
     { 
-        "key": "MiddayPrayers", 
-        "name": "MiddayPrayers" 
+        "key": "5", 
+        "type": "heading",
+        "tag": "h2",
+        "text": "This is a level 2 heading"
     },
     { 
-        "key": "EveningPrayers", 
-        "name": "EveningPrayers" 
+        "key": "10", 
+        "type": "heading",
+        "tag": "h3",
+        "text": "This is a level 3 heading"
     },
     { 
-        "key": "MondayCompline",
-        "name": "MondayCompline" 
+        "key": "15", 
+        "type": "heading",
+        "tag": "h4",
+        "text": "This is a level 4 heading"
     },
     { 
-        "key": "TuesdayCompline", 
-        "name": "TuesdayCompline" 
-    },
-    { 
-        "key": "WednesdayCompline", 
-        "name": "WednesdayCompline" 
-    },
-    { 
-        "key": "ThurdayCompline", 
-        "name": "ThurdayCompline" 
-    },
-    { 
-        "key": "FridayCompline", 
-        "name": "FridayCompline" 
-    },
-    { 
-        "key": "SaturdayCompline",
-        "name": "SaturdayCompline" 
-    },
-    { 
-        "key": "SundayCompline",
-        "name": "SundayCompline" 
+        "key": "20", 
+        "type": "heading",
+        "tag": "h5",
+        "text": "This is a level 5 heading"
     }
 ]

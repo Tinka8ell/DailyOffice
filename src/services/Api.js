@@ -36,11 +36,7 @@ export class Api {
 
   static getTemplate(template){
     const sanitised = template.replace(/\s/g, '')
-    console.log('getTemplate(' + template + '), sanitised: ' + sanitised)
-    console.log({ ... templates })
     const data = templates[sanitised]
-    console.log('getTemplate returns: ' + data)
-    console.log([ ... data ])
     return (data)
   }
 

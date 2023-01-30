@@ -1,20 +1,12 @@
 import { Api } from '../../services/Api'
+import { Sections } from '../sections/Sections'
 
 export function Body({ office, updateOffice}) {
-  console.log('Body, office: ')
-  console.log({ ... office })
   const body = Api.getBody(office)
-  console.log('Body, body: ')
-  console.log({ ... body })
   let template = []
   if (body.type === 'template'){
-    console.log('getting tempolate')
     template = Api.getTemplate(body.template)
   }
-  console.log('template size: ' + template.length)
-  template.forEach(element => {
-    console.log('Element name: ' + element.name)
-  })
 
   return (
     <div className="Body">
@@ -30,15 +22,7 @@ export function Body({ office, updateOffice}) {
         <p>
           Template: {body.template}
         </p>
-        <p>
-          Template contains: 
-            { template.map(element => (
-              <div>
-                Element name: {element.name}
-                <br />
-              </div>
-            ))}
-        </p>
+        <Sections key={body.template} template={template} />
     </div>
   )
 }
