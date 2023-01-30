@@ -4,11 +4,10 @@ export function Footer({ office, setOffice}) {
 
   return (
     <div className="Footer">
-        <Navigator 
-            office={office}
-            setOffice={setOffice}
-        >
-        </Navigator>
+      <Navigator 
+        office={office}
+        setOffice={setOffice}
+      />
     </div>
   )
 }

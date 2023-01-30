@@ -1,4 +1,4 @@
-import { Navigator, Navigator2 } from '../common/Navigator'
+import { Navigator } from '../common/Navigator'
 
 export function Header({ office, setOffice}) {
   const formattedDate = office.date.toLocaleDateString('en-GB', {
@@ -6,7 +6,7 @@ export function Header({ office, setOffice}) {
     year: 'numeric', 
     month: 'long', 
     day: 'numeric',
-})
+  })
 
   return (
     <div className="Footer">
@@ -16,11 +16,10 @@ export function Header({ office, setOffice}) {
       <h2>
         { formattedDate }
       </h2>
-        <Navigator2 
+        <Navigator 
             office={office}
             setOffice={setOffice}
-        >
-        </Navigator2>
+        />
     </div>
   )
 }
