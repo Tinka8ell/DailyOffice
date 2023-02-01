@@ -1,4 +1,21 @@
-import { apiConfig } from './apiConfig';
+import { apiConfig } from './apiConfig'
+const { MongoClient, ServerApiVersion } = require('mongodb')
+const uri = apiConfig.MONGO_URI
+const client = new MongoClient(
+  uri, 
+  { 
+    useNewUrlParser: true, 
+    useUnifiedTopology: true, 
+    serverApi: ServerApiVersion.v1 
+  })
+import { Templates } from '../models/templates'
+
+client.connect(err => {
+  const collection = client.db('Templates').collection('DailyOffice')
+  collection.
+  client.close();
+});
+
 import MorningPrayers from '../data/MorningPrayers.json'
 import MiddayPrayers from '../data/MiddayPrayers.json'
 import EveningPrayers from '../data/EveningPrayers.json'
