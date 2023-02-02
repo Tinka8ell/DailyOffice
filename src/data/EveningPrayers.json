@@ -28,8 +28,7 @@
         "type": "heading",
         "tag": "h5",
         "text": "This is a level 5 heading"
-    }
-]
+    },
 {
     "template": "MorningPrayers",
     "items": [
@@ -71,3 +70,4 @@
      }
     ]
    }
+]
