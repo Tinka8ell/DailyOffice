@@ -1,18 +1,27 @@
+import { useBible } from '../../hooks/useBible'
 import { ParagraphList } from './ParagraphList'
 
-export function BibleQuote({ verse }) {
-  if (verse == null){
+export function BibleQuote({ version, reference }) {
+  const [ response, request ] = useBible()
+  const { error, isLoaded, verse } = response
+  request(version, reference)
+  if (error) {
+    return <div>useBible({version}, {reference}) - Error: {error.message}</div>;
+  } else if (!isLoaded) {
+    return <div>MyComponent - Loading...</div>;
+  } else if (verse.paragraph == null) {
     return (
-      <h1> No verse to display </h1>
+      <h1> Not found the quote: {reference} [ {version} ] </h1>
+    )
+  } else {
+    return (
+      <div className="BibleQuote">
+        <ParagraphList className='BibleText' paragraphs={verse.paragraph} />
+        <div className='BibleReference'>
+          { verse.reference } 
+          { verse.version != null && ' (' + verse.version + ') ' }
+        </div>
+      </div>
     )
   }
-  return (
-  <div className="BibleQuote">
-    <ParagraphList className='BibleText' paragraphs={verse.paragraph} />
-    <div className='BibleReference'>
-      { verse.reference } 
-      { verse.version != null && ' (' + verse.version + ') ' }
-    </div>
-  </div>
-  )
 }

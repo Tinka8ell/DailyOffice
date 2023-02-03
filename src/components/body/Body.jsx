@@ -73,7 +73,11 @@ export function Body({ office}) {
         <h2>
           Temporarily do a verse:
         </h2>
-        <MyComponent version="NLT" reference="John 3:16-17" />
+        <BibleQuote version="NLT" reference="John 3:16-17" />
+        <h2>
+          And another:
+        </h2>
+        <BibleQuote version="MLT" reference="John 3:16" />
     </div>
   )
 }

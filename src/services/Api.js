@@ -7,15 +7,9 @@ import { apiConfig } from './apiConfig';
 export class Api {
   static url = apiConfig.AWS_URI;
 
-  static async getBibleQuote(version, reference) {
-    console.log(`API.getBibleQuote(${version}, ${reference})`)
-    const response = await fetch(`${this.url}/quote/${version}/${reference}`)
-    console.log('API.getBibleQuote returned with:')
-    console.log({ ... response })
-    const json = await response.json();
-    console.log('API.getBibleQuote after processing JSON:')
-    console.log({ ... response })
-    return json;
+  static getBibleQuoteFromAWS(version, reference) {
+    return fetch(`${this.url}/quote/${version}/${reference}`)
+        .then(res => res.json())
   }
 
 }
