@@ -8,7 +8,7 @@ export function useBible() {
 
     function request(version, reference){
         useEffect(() => {
-        Api.getBibleQuoteFromAWS(version, reference)
+            Api.getBibleQuoteFromAWS(version, reference)
             .then(
             (result) => {
                 setIsLoaded(true);

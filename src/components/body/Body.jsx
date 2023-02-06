@@ -1,45 +1,7 @@
-import { useEffect, useState } from 'react'
-import { Api } from '../../services/Api'
-import { apiConfig } from '../../services/apiConfig'
 /*
 import { Sections } from '../sections/Sections'
 */
 import { BibleQuote } from '../common/BibleQuote'
-
-const AWS_URL = apiConfig.AWS_URI
-
-function MyComponent({ version, reference }) {
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [verse, setVerse] = useState([]);
-
-  useEffect(() => {
-    fetch(`${AWS_URL}/quote/${version}/${reference}`)
-      .then(res => {
-          return res.json()
-        })
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          setVerse(result);
-        },
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      )
-  }, [])
-
-  if (error) {
-    return <div>MyComponent - Error: {error.message}</div>;
-  } else if (!isLoaded) {
-    return <div>MyComponent - Loading...</div>;
-  } else {
-    return (
-      <BibleQuote verse={verse} />
-    );
-  }
-}
 
 export function Body({ office}) {
   /*
@@ -77,7 +39,7 @@ export function Body({ office}) {
         <h2>
           And another:
         </h2>
-        <BibleQuote version="MLT" reference="John 3:16" />
+        <BibleQuote version="NLT" reference="John 3:16" />
     </div>
   )
 }

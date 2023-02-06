@@ -1,4 +1,5 @@
 import { useBible } from '../../hooks/useBible'
+import { useBibleGateway } from '../../hooks/useBibleGateway'
 import { ParagraphList } from './ParagraphList'
 
 export function BibleQuote({ version, reference }) {
@@ -8,24 +9,55 @@ export function BibleQuote({ version, reference }) {
     if (error) {
         return (
             <div>
-                useBible({version}, {reference}) - Error: {error.message}
+                BibleQuote({version}, {reference}) - Error: {error.message}
             </div>
         )
     } else if (!isLoaded) {
         return (
             <div>
-                MyComponent - Loading...
+                Getting from AWS ...
             </div>
         )
     } else if (verse.paragraph == null) {
         return (
-          <NotFound version={version} reference={reference} />
+          <NotFoundOnAWS version={version} reference={reference} />
         )
     } else {
         return (
           <Quote verse={verse} />
         )
     }
+}
+
+function NotFoundOnAWS({ version, reference }) {
+  const [ response, request ] = useBibleGateway()
+  const { error, isLoaded, doc } = response
+  request(version, reference)
+  if (error) {
+      return (
+          <div>
+              NotFoundOnAWS({version}, {reference}) - Error: {error.message}
+          </div>
+      )
+  } else if (!isLoaded) {
+      return (
+          <div>
+              Getting from Bible Gateway ...
+          </div>
+      )
+  } else if (verse.paragraph == null) {
+      return (
+        <NotFound version={version} reference={reference} />
+      )
+  } else {
+      console.log('Successfully got a dom:')
+      console.log({ ... doc })
+      return (
+        <>
+            {doc}
+        </>
+      )
+  }
 }
 
 function NotFound({ version, reference }) {
