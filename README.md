@@ -68,14 +68,14 @@ A simple <h{size}> wrapper of:
 
 ## Paragraph
 
-Yet to be formalised, but something like and array of Lines seperated by <br/> separators.
+Array of Lines seperated by <br/> separators.
 
 ## Lines
 
-Made up of parts that are either:
+An array of parts that are either:
 
 * Text
-* Emphasised text
+* Optional type (currently only 'em' supported)
 
 ## Bible reading (version, reference)
 
