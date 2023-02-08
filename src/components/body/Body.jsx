@@ -1,4 +1,4 @@
-import { Template } from '../common/NewTemplate'
+import { Template } from '../template/Template'
 
 export function Body({ office}) {
   const officeName = office.name.replace(/\s/g, '')

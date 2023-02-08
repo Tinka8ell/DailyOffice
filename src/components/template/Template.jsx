@@ -1,8 +1,8 @@
-import { Heading } from './Heading'
-import { BibleQuote, BibleReference } from './BibleQuote'
-import { LineBreak } from './LineBreak'
+import { Heading } from '../common/Heading'
+import { BibleQuote, BibleReference } from '../common/BibleQuote'
+import { LineBreak } from '../common/LineBreak'
 import { Meditation } from '../meditation/Meditation'
-import { newTemplates } from '../../services/DailyOfficeTemplates'
+import { newTemplates } from './DailyOfficeTemplates'
 
 function content (template, office){
   if (template.text != null){

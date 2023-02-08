@@ -1,5 +1,5 @@
-import { templates } from '../../services/DailyOfficeTemplates'
-import { Template } from '../common/Template'
+import { templates } from '../template/DailyOfficeTemplates'
+import { Template } from '../template/Template'
 
 export function Meditation({ office}) {
   console.log('Meditation.office: ', { ...office })
