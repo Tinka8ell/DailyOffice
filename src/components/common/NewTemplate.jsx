@@ -5,11 +5,9 @@ import { Meditation } from '../meditation/Meditation'
 import { newTemplates } from '../../services/DailyOfficeTemplates'
 
 function content (template, office){
-  console.log("content of:", template)
   if (template.text != null){
     return template.text
   } else if (template.items != null){
-    console.log("a list:", [ ...template.items ])
     return template.items.map((item, index) =>
       <Template key={index} template={item} office={office} />
     )
@@ -25,7 +23,6 @@ function content (template, office){
 export function Template({ template, office }) {
   if (template.name != null){
     // named component
-    console.log("Template name:", template.name, ", parameters: ", template.parameters)
     if (template.name === 'Heading'){
       return ( <Heading template={ { ...template.parameters } } />)
     } else if (template.name === 'BibleQuote'){
@@ -39,14 +36,12 @@ export function Template({ template, office }) {
     } else {
       // assume it is the name of another template
       const subtemplate = newTemplates[template.name]
-      console.log("Processing subtemplate: ", template.name, ", as: ", subtemplate)
       return (
         <Template template={subtemplate} office={office} />
       )
     }
   } else {
     // assumed list of sub templates
-    console.log("Template:", template)
     if (template.div){
       return (
         <div className={template.className} >
