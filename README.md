@@ -50,11 +50,12 @@ Is a section of buttons and fields:
 
 ## Body
 
-Contains an array of sections.  Sections - one of:
+Contains a template of an array of sections.  Sections - one of:
 
+* Template (so we can chain)
 * Heading (size 2+)
 * Paragraph
-* Bible reading 
+* Bible Quote 
 * Meditation
 * Extended Bible Reading 
 * OMS Prayers 
@@ -77,7 +78,7 @@ An array of parts that are either:
 * Text
 * Optional type (currently only 'em' supported)
 
-## Bible reading (version, reference)
+## Bible Quote (version, reference)
 
 Made up of:
 
@@ -89,11 +90,13 @@ Made up of:
 
 ## Meditation
 
-One or more Prayers:
+One or more Prayers defined by a name calculated from day of the month:
 
-1. Title (heading 3 optional)
-1. Paragraphs (1 or more)
-1. Author (emphasised right aligned)
+1. Meditation Title (heading 2?)
+1. One or more prayers
+   1. Title (heading 3? optional)
+   1. Paragraphs (1 or more)
+   1. Author (emphasised right aligned)
 
 ## Extended Bible Reading (either Daily or Yearly) (based on date)
 

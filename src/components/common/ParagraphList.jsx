@@ -7,10 +7,10 @@ export function ParagraphList({ paragraphs }) {
     )
   }
   return (
-  <div className='BibleText'>
+  <div className='ParagraphText'>
     { 
-      paragraphs.map((paragraph, index) => (
-        <Paragraph key={index} lines={paragraph} />
+      paragraphs.map((lines, index) => (
+        <Paragraph key={index} lines={lines} />
       ))
     }
   </div>

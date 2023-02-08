@@ -68,15 +68,97 @@ const embedded = [
         "text": "An embeded part, an"
     },
     {
-        "key": 2,
+        "key": 3,
         "type": "Part",
         "tag": "em",
         "text": "important"
     },
     {
-        "key": 2,
+        "key": 4,
         "type": "Part",
         "text": "part"
+    },
+    {
+        "key": 5,
+        "type": "Meditation",
+    }
+]
+
+const meditation = [
+    {
+        "key": 1,
+        "type": "Heading",
+        "tag": "h2",
+        "text": "A generic meditation"
+    },
+    {
+        "key": 2,
+        "type": "Template",
+        "name": "Prayers",
+        "template": [
+            {
+                "key": 3,
+                "type": "Heading",
+                "name": "Prayer1",
+                "template": []
+            },
+            {
+                "key": 4,
+                "type": "ParagraphList",
+                "paragraphs": [
+                    {
+                        "key": 5,
+                        "type": "Paragraph",
+                        "lines": [
+                            {
+                                "key": 100,
+                                "type": "Line",
+                                "parts": [
+                                    {
+                                        "key": 5,
+                                        "type": "Part",
+                                        "text": "A line with an"
+                                    },
+                                    {
+                                        "key": 6,
+                                        "type": "Part",
+                                        "tag": "em",
+                                        "text": "important"
+                                    },
+                                    {
+                                        "key": 7,
+                                        "type": "Part",
+                                        "text": "part"
+                                    }
+                                ]
+                            },
+                            {
+                                "key": 101,
+                                "type": "Line",
+                                "parts": [
+                                    {
+                                        "key": 8,
+                                        "type": "Part",
+                                        "text": "A second line with an"
+                                    },
+                                    {
+                                        "key": 9,
+                                        "type": "Part",
+                                        "tag": "em",
+                                        "text": "important"
+                                    },
+                                    {
+                                        "key": 10,
+                                        "type": "Part",
+                                        "text": "part"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 ]
 
@@ -86,6 +168,12 @@ export const templates = {
         "type": "template",
         "name": "Embedded",
         "template": embedded,
+    },
+    "meditation": {
+        "key": "0", 
+        "type": "template",
+        "name": "meditation",
+        "template": meditation,
     },
     "MorningPrayers": { 
         "key": "1", 
@@ -146,5 +234,191 @@ export const templates = {
         "type": "template",
         "name": "SundayCompline",
         "template": basic,
+    },
+    "Meditation-1": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 1",
+        "template": "meditation",
+    },
+    "Meditation-2": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 2",
+        "template": "meditation",
+    },
+    "Meditation-3": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 3",
+        "template": "meditation",
+    },
+    "Meditation-4": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 4",
+        "template": "meditation",
+    },
+    "Meditation-5": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 5",
+        "template": "meditation",
+    },
+    "Meditation-6": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 6",
+        "template": "meditation",
+    },
+    "Meditation-7": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 7",
+        "template": "meditation",
+    },
+    "Meditation-8": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 8",
+        "template": "meditation",
+    },
+    "Meditation-9": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 9",
+        "template": "meditation",
+    },
+    "Meditation-10": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 10",
+        "template": "meditation",
+    },
+    "Meditation-11": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 11",
+        "template": "meditation",
+    },
+    "Meditation-12": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 12",
+        "template": "meditation",
+    },
+    "Meditation-13": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 13",
+        "template": "meditation",
+    },
+    "Meditation-14": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 14",
+        "template": "meditation",
+    },
+    "Meditation-15": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 15",
+        "template": "meditation",
+    },
+    "Meditation-16": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 16",
+        "template": "meditation",
+    },
+    "Meditation-17": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 17",
+        "template": "meditation",
+    },
+    "Meditation-18": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 18",
+        "template": "meditation",
+    },
+    "Meditation-19": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 19",
+        "template": "meditation",
+    },
+    "Meditation-20": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 20",
+        "template": "meditation",
+    },
+    "Meditation-21": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 21",
+        "template": "meditation",
+    },
+    "Meditation-22": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 22",
+        "template": "meditation",
+    },
+    "Meditation-23": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 23",
+        "template": "meditation",
+    },
+    "Meditation-24": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 24",
+        "template": "meditation",
+    },
+    "Meditation-25": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 25",
+        "template": "meditation",
+    },
+    "Meditation-26": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 26",
+        "template": "meditation",
+    },
+    "Meditation-27": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 27",
+        "template": "meditation",
+    },
+    "Meditation-28": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 28",
+        "template": "meditation",
+    },
+    "Meditation-29": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 29",
+        "template": "meditation",
+    },
+    "Meditation-30": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 30",
+        "template": "meditation",
+    },
+    "Meditation-31": { 
+        "key": "11", 
+        "type": "template",
+        "name": "Day 31",
+        "template": "meditation",
     }
 }

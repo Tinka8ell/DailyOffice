@@ -5,7 +5,7 @@ export function Paragraph({ lines }) {
     <>
       {
         lines.map((line, index) => (
-          <Line key={index} parts={line} />
+          <Line key={index} parts={line.parts} />
         ))
       }
     </>
