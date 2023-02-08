@@ -1,10 +1,10 @@
-import { Template } from '../common/Template'
+import { Template } from '../common/NewTemplate'
 
 export function Body({ office}) {
   console.log('Body.office: ', { ...office })
   const officeName = office.name.replace(/\s/g, '')
   return (
-    <Template name={officeName} office={office} />
+    <Template template={ { name: officeName } } office={office} />
   )
 }
 

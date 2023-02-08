@@ -2,8 +2,17 @@ import { useBible } from '../../hooks/useBible'
 import { useBibleGateway } from '../../hooks/useBibleGateway'
 import { ParagraphList } from './ParagraphList'
 
+export function BibleReference({ version, reference }) {
+    return (
+        <div className='BibleReference'>
+            { reference } 
+            { version != null && ' (' + version + ') ' }
+        </div>
+    )
+}
+
 export function BibleQuote({ version, reference }) {
-    const [ response, request ] = useBible()
+        const [ response, request ] = useBible()
     const { error, isLoaded, verse } = response
     request(version, reference)
     if (error) {
