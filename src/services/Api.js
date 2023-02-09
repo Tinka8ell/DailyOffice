@@ -1,5 +1,9 @@
 import { apiConfig } from './apiConfig';
 
+// temporarily use local data:
+import { templates } from '../components/template/LocalTemplates'
+
+
 /**
  * For this simple use case, 'fetch' is good enough. For a more complex application consider
  * using a library for Rest calls such as https://github.com/sindresorhus/ky
@@ -24,6 +28,10 @@ export class Api {
     static getBibleQuoteFromAWS(version, reference) {
         return fetch(`${this.url}/quote/${version}/${reference}`)
             .then(res => res.json())
+    }
+
+    static getTemplate(name) {
+        return templates[name]
     }
 
 }

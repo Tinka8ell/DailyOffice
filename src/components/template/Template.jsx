@@ -2,7 +2,7 @@ import { Heading } from '../common/Heading'
 import { BibleQuote, BibleReference } from '../common/BibleQuote'
 import { LineBreak } from '../common/LineBreak'
 import { Meditation } from '../meditation/Meditation'
-import { newTemplates } from './DailyOfficeTemplates'
+import { Api } from '../../services/Api'
 
 function content (template, office){
   if (template.text != null){
@@ -35,7 +35,7 @@ export function Template({ template, office }) {
       return ( <LineBreak />)
     } else {
       // assume it is the name of another template
-      const subtemplate = newTemplates[template.name]
+      const subtemplate = Api.getTemplate(template.name)
       return (
         <Template template={subtemplate} office={office} />
       )

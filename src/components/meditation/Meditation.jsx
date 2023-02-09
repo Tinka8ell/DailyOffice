@@ -1,12 +1,12 @@
-import { templates } from '../template/DailyOfficeTemplates'
 import { Template } from '../template/Template'
+import { Api } from '../../services/Api'
 
 export function Meditation({ office}) {
-  console.log('Meditation.office: ', { ...office })
   const meditation = office.date.getDate()
   const meditationName = 'Meditation-' + meditation
+  const subtemplate = Api.getTemplate(meditationName)
   return (
-    <Template name={meditationName} office={office} />
-  )
+    <Template template={subtemplate} office={office} />
+    )
 }
 
