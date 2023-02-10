@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react'
 import { Api } from '../services/api'
 
 export function useBible() {
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [verse, setVerse] = useState([]);
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [verse, setVerse] = useState([]);
 
     function request(version, reference){
         useEffect(() => {

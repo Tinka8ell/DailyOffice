@@ -14,15 +14,13 @@ export function useBibleGateway() {
                 setIsLoaded(true);
                 const domParser = new DOMParser()
                 const doc = domParser.parseFromString(result, "text/html")
-                // You can now even select part of that html as you would in the regular DOM 
-                // Example:
-                // var docArticle = doc.querySelector('article').innerHTML;
-                setDoc(doc);
+                const main = doc.querySelector('div[role=main]').innerHTML
+                setDoc(main);
             },
             (error) => {
                 setIsLoaded(true);
                 setError(error);
-            }
+                }
             )
         }, [])
     }

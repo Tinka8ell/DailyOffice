@@ -28,8 +28,11 @@ export function BibleQuote({ version, reference }) {
             </div>
         )
     } else if (verse.paragraph == null) {
+        // return (
+        //     <NotFoundOnAWS version={version} reference={reference} />
+        // )
         return (
-          <NotFoundOnAWS version={version} reference={reference} />
+            <NotFound version={version} reference={reference} />
         )
     } else {
         return (
@@ -59,8 +62,6 @@ function NotFoundOnAWS({ version, reference }) {
         <NotFound version={version} reference={reference} />
       )
   } else {
-      console.log('Successfully got a dom:')
-      console.log({ ... doc })
       return (
         <>
             {doc}

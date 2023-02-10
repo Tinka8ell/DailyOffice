@@ -29,6 +29,13 @@ export const templates ={
                 }
             },
             {
+                "name": "BibleQuote",
+                "parameters": {
+                    "version": "NLT",
+                    "reference": "John 3:16"
+                }
+            },
+            {
                 "div": true, 
                 "className": "Prayers",
                 "items": [

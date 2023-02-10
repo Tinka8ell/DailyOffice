@@ -13,29 +13,29 @@ function content (template, office){
     )
   } else {
     return (
-      <Heading tag="h3" >
-        Template missing content
-      </Heading>
+      <Heading template={{ tag: "h3", text: "Template missing content" }} />
     )
   }
 }
 
 export function Template({ template, office }) {
-  if (template.name != null){
+  const name = template.name
+  console.log('Template.template: ', template, ', name: "', name, '"')
+  if (name != null){
     // named component
-    if (template.name === 'Heading'){
-      return ( <Heading template={ { ...template.parameters } } />)
-    } else if (template.name === 'BibleQuote'){
+    if (name === 'Heading'){
+      return ( <Heading template={template.parameters} />)
+    } else if (name === 'BibleQuote'){
       return ( <BibleQuote reference={template.parameters.reference} version={template.parameters.version} />)
-    } else if (template.name === 'BibleReference'){
+    } else if (name === 'BibleReference'){
       return ( <BibleReference reference={template.parameters.reference} version={template.parameters.version} />)
-    } else if (template.name === 'Meditation'){
+    } else if (name === 'Meditation'){
       return ( <Meditation office={office} />)
-    } else if (template.name === 'LineBreak'){
+    } else if (name === 'LineBreak'){
       return ( <LineBreak />)
     } else {
       // assume it is the name of another template
-      const subtemplate = Api.getTemplate(template.name)
+      const subtemplate = Api.getTemplate(name)
       return (
         <Template template={subtemplate} office={office} />
       )

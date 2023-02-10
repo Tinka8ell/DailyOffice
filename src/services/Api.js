@@ -11,23 +11,22 @@ import { templates } from '../components/template/LocalTemplates'
 export class Api {
     static url = apiConfig.AWS_URI;
 
-    static getBibleQuoteAsHtml(version, search) {
+    static async getBibleQuoteAsHtml(version, search) {
         const uri = apiConfig.BIBLE_URI
         const query = {search, version}
         const searchParams = new URLSearchParams(query)
-        const biblegateway = `${apiConfig.BIBLE_URI}?${searchParams.toString()}`
+        const biblePassage = `${apiConfig.BIBLE_PASSAGE}${searchParams.toString()}`
 
-        return fetch(biblegateway, { 
-            headers: {
-                'Content-Type': 'text/plain',
-            },
-        })
-            .then(res => res.text())
+        const res = await fetch(biblePassage);
+        const text = await res.text();
+        return text;
     }
 
-    static getBibleQuoteFromAWS(version, reference) {
-        return fetch(`${this.url}/quote/${version}/${reference}`)
-            .then(res => res.json())
+    static async getBibleQuoteFromAWS(version, reference) {
+        const url = `${this.url}/quote/${version}/${reference}`;
+        const res = await fetch(url);
+        const json = await res.json();
+        return json
     }
 
     static getTemplate(name) {
