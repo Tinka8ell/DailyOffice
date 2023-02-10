@@ -1,0 +1,9 @@
+{
+    "routeKey": "GET /{version}/{reference}",
+    "pathParameters": {
+      "version": "NLT",
+      "reference": "john+3:16"
+    },
+    "options": "https://www.biblegateway.com/passage/?search=john+3:16-18&version=NLT",
+    "data": "None"
+}

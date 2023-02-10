@@ -1,0 +1,4 @@
+{
+  "routeKey": "PUT /quote",
+  "body": "{\"version\": \"MLT\", \"reference\": \"John 3:16-17\", \"paragraph\": \"paragraph\" }"
+}

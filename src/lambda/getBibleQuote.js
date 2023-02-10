@@ -20,6 +20,8 @@ export const handler = async (event, context) => {
   const headers = {
     "Content-Type": "application/json",
   };
+  console.log("Got here");
+  console.log("event.routeKey:", event.routeKey);
 
   try {
     switch (event.routeKey) {
@@ -37,8 +39,11 @@ export const handler = async (event, context) => {
         body = `Deleted quote: ${event.pathParameters.reference} - ${event.pathParameters.version}`;
         break;
       case "GET /quote/{version}/{reference}":
+        console.log("reference:", event.pathParameters.reference);
+        console.log("version:", event.pathParameters.version);
         VersionReference = '[' + event.pathParameters.version + ']' + event.pathParameters.reference;
         VersionReference = VersionReference.replace(/\+/g, ' ');
+        console.log("versionReferecnce:", VersionReference);
         body = await dynamo.send(
           new GetCommand({
             TableName: tableName,
@@ -47,6 +52,7 @@ export const handler = async (event, context) => {
             },
           })
         );
+        console.log('body', body);
         body = body.Item;
         if (body == null)
           body = {};
@@ -55,6 +61,7 @@ export const handler = async (event, context) => {
         body = await dynamo.send(
           new ScanCommand({ TableName: tableName })
         );
+        console.log('body', body);
         body = body.Items;
         break;
       case "PUT /quote":

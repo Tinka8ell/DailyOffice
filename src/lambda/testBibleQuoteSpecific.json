@@ -1,0 +1,7 @@
+{
+    "routeKey": "GET /quote/{version}/{reference}",
+    "pathParameters": {
+      "version": "NLT",
+      "reference": "John+3:16-18"
+    }
+}
