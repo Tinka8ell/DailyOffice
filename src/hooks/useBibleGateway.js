@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Api } from '../services/api'
+import { Api } from '..'
 
 export function useBibleGateway() {
   const [error, setError] = useState(null);
