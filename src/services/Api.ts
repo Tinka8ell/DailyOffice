@@ -1,7 +1,8 @@
 import { apiConfig } from './apiConfig';
 
 // temporarily use local data:
-import { templates, template, parameters } from '../components/template/LocalTemplates'
+import { templates} from '../components/template/LocalTemplates'
+import type { template} from '../components/template/LocalTemplates'
 
 
 

@@ -19,7 +19,7 @@ const defaultOffice = {
     office: null,
     name: 'Missing',
 }
-type office = {
+export type office = {
     date: Date,
     office: null | number,
     name: string
@@ -54,7 +54,7 @@ function alignOffice(nextOffice: office){
     return nextOffice
 }
 
-export function useOffice() {
+export function useOffice():[office, (office: office) => void] {
     const [office, setOffice] = useState(alignOffice(defaultOffice))
 
     function updateOffice(nextOffice: office){

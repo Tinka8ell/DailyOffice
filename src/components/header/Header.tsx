@@ -1,6 +1,7 @@
+import type { office } from '../../hooks/useOffice'
 import { Navigator } from '../common/Navigator'
 
-export function Header({ office, updateOffice}) {
+export function Header({ office, updateOffice}: { office: office; updateOffice: (office: office) => void }) {
   const formattedDate = office.date.toLocaleDateString('en-GB', {
     weekday: 'long', 
     year: 'numeric', 

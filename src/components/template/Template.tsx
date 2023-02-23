@@ -3,8 +3,10 @@ import { BibleQuote, BibleReference } from '../common/BibleQuote'
 import { LineBreak } from '../common/LineBreak'
 import { Meditation } from '../meditation/Meditation'
 import { Api } from '../../services/Api'
+import type { parameters, template } from './LocalTemplates'
+import type { office } from '../../hooks/useOffice'
 
-function content (template, office){
+function content (template: template, office: office){
   if (template.text != null){
     return template.text
   } else if (template.items != null){
@@ -18,7 +20,7 @@ function content (template, office){
   }
 }
 
-export function Template({ template, office }) {
+export function Template({ template, office }: { template: template; office: office }) {
   const name = template.name
   console.log('Template.template: ', template, ', name: "', name, '"')
   if (name != null){
@@ -26,9 +28,11 @@ export function Template({ template, office }) {
     if (name === 'Heading'){
       return ( <Heading template={template.parameters} />)
     } else if (name === 'BibleQuote'){
-      return ( <BibleQuote reference={template.parameters.reference} version={template.parameters.version} />)
+      const templateParameters = template.parameters as parameters
+      return ( <BibleQuote reference={templateParameters.reference} version={templateParameters.version} />)
     } else if (name === 'BibleReference'){
-      return ( <BibleReference reference={template.parameters.reference} version={template.parameters.version} />)
+      const templateParameters = template.parameters as parameters
+      return ( <BibleReference reference={templateParameters.reference} version={templateParameters.version} />)
     } else if (name === 'Meditation'){
       return ( <Meditation office={office} />)
     } else if (name === 'LineBreak'){
@@ -51,13 +55,13 @@ export function Template({ template, office }) {
     } else if (template.span){
       return (
         <span className={template.className} >
-          {content(template)}
+          {content(template, office)}
         </span>
       )
     } else {
       return (
         <>
-          {content(template)}
+          {content(template, office)}
         </>
       )
     }
