@@ -1,7 +1,8 @@
 import { apiConfig } from './apiConfig';
 
 // temporarily use local data:
-import { templates } from '../components/template/LocalTemplates'
+import { templates, template, parameters } from '../components/template/LocalTemplates'
+
 
 
 /**
@@ -11,7 +12,7 @@ import { templates } from '../components/template/LocalTemplates'
 export class Api {
     static url = apiConfig.AWS_URI;
 
-    static async getBibleQuoteAsHtml(version, search) {
+    static async getBibleQuoteAsHtml(version: string, search: string) {
         const uri = apiConfig.BIBLE_URI
         const query = {search, version}
         const searchParams = new URLSearchParams(query)
@@ -22,14 +23,14 @@ export class Api {
         return text;
     }
 
-    static async getBibleQuoteFromAWS(version, reference) {
+    static async getBibleQuoteFromAWS(version: string, reference: string) {
         const url = `${this.url}/quote/${version}/${reference}`;
         const res = await fetch(url);
         const json = await res.json();
         return json
     }
 
-    static getTemplate(name) {
+    static getTemplate(name: string): template {
         return templates[name]
     }
 

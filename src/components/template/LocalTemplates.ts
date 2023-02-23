@@ -1,5 +1,20 @@
 // new templates
-export const templates ={
+export type parameters = {
+    [index: string]: string
+}
+export type template = {
+    div?: true | false;
+    span?: true | false;
+    className?: string;
+    text?: string;
+    name?: string;
+    items?: Array<template>;
+    parameters?: parameters
+}
+type templates = {
+    [index: string]: template
+}
+export const templates: templates = {
     "DailyOffice": { 
         "div": true,
         "className": "dailyOffice",
