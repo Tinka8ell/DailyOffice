@@ -6,7 +6,7 @@ export function useBible() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [verse, setVerse] = useState([]);
 
-    function request(version, reference){
+    function request(version: string, reference: string){
         useEffect(() => {
             Api.getBibleQuoteFromAWS(version, reference)
             .then(

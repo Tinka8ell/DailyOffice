@@ -4,9 +4,9 @@ import { Api } from '../services/Api'
 export function useBibleGateway() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [doc, setDoc] = useState([]);
+  const [doc, setDoc] = useState('');
 
-    function request(version, reference){
+    function request(version: string, reference: string){
         useEffect(() => {
             Api.getBibleQuoteAsHtml(version, reference)
             .then(
@@ -14,8 +14,10 @@ export function useBibleGateway() {
                 setIsLoaded(true);
                 const domParser = new DOMParser()
                 const doc = domParser.parseFromString(result, "text/html")
-                const main = doc.querySelector('div[role=main]').innerHTML
-                setDoc(main);
+                const main = doc.querySelector('div[role=main]')
+                if (main != null){
+                    setDoc(main.innerHTML);
+                }
             },
             (error) => {
                 setIsLoaded(true);

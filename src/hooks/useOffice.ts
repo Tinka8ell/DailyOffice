@@ -19,8 +19,13 @@ const defaultOffice = {
     office: null,
     name: 'Missing',
 }
+type office = {
+    date: Date,
+    office: null | number,
+    name: string
+}
 
-function alignOffice(nextOffice){
+function alignOffice(nextOffice: office){
     if (nextOffice.office == null){ // not been set
         // todo: first check if we were passed a date / office
         const hours = nextOffice.date.getHours()
@@ -52,7 +57,7 @@ function alignOffice(nextOffice){
 export function useOffice() {
     const [office, setOffice] = useState(alignOffice(defaultOffice))
 
-    function updateOffice(nextOffice){
+    function updateOffice(nextOffice: office){
         setOffice(alignOffice(nextOffice)) 
     }
 
