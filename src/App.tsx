@@ -7,8 +7,7 @@ function App() {
 
   return (
     <div>
-      <Office >
-      </Office>
+      <Office />
     </div>
   )
 }
