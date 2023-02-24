@@ -1,5 +1,5 @@
 import type { office } from '../../hooks/useOffice'
-import { Navigator } from '../common/Navigator'
+import { Navigator } from '../navigator/Navigator'
 
 export function Footer({ office, updateOffice}: { office: office; updateOffice: (office: office) => void }) {
 
