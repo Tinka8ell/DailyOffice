@@ -1,15 +1,16 @@
-import { useState, forwardRef } from 'react'
 import DatePicker from 'react-datepicker'
 import '../../../node_modules/react-datepicker/dist/react-datepicker.css'
 
-export function Navigator({ office, updateOffice}){
+import type { office } from '../../hooks/useOffice'
 
-  const notFuture = (date) => {
+export function Navigator({ office, updateOffice}: { office: office; updateOffice: (office: office) => void }) {
+
+  const notFuture = (date: Date) => {
     const now = new Date()
     return date <= now
   }
 
-  function formattedDate(value){
+  function formattedDate(value: Date | number){
     const date = new Date(value)
     return date.toLocaleDateString('en-GB', {
       weekday: 'long', 
@@ -18,26 +19,17 @@ export function Navigator({ office, updateOffice}){
       day: 'numeric',
     })
   }
-    
-  const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => {
-    return (
-      <button 
-        className="navigatior-date" 
-        onClick={onClick} 
-        ref={ref}>
-        {formattedDate(value)}
-      </button>
-    )
-  });
 
   function previousOffice(){
     const previous = { ...office }
+    previous.office = previous.office ? previous.office : 0
     previous.office -= 1
     updateOffice(previous)
   }
 
   function nextOffice(){
     const previous = { ...office }
+    previous.office = previous.office ? previous.office : 0
     previous.office += 1
     updateOffice(previous)
   }
@@ -47,8 +39,10 @@ export function Navigator({ office, updateOffice}){
       <DatePicker
         todayButton="Back to today"
         selected={office.date}
-        onChange={(date) => updateOffice({ ...office, date: new Date(date) })}
-        customInput={<ExampleCustomInput />}
+        onChange={(date) => updateOffice({
+           ...office, 
+           date: date ? new Date(date) : new Date()
+          })}
         dateFormat='d MMMM yyyy'
         filterDate={notFuture}
       />

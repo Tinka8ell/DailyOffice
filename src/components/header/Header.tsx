@@ -10,7 +10,7 @@ export function Header({ office, updateOffice}: { office: office; updateOffice: 
   })
 
   return (
-    <div className="Footer">
+    <div className="Header">
       <h1>
         { office.name } 
       </h1>
