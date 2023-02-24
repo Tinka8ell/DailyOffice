@@ -1,18 +1,12 @@
-import { useBible } from '../../hooks/useBible'
-import { useBibleGateway } from '../../hooks/useBibleGateway'
+import { useBible, verse } from '../../hooks/useBible'
+// import { useBibleGateway } from '../../hooks/useBibleGateway'
 import { ParagraphList } from './ParagraphList'
+import type { paragraph } from './ParagraphList'
 
-export function BibleReference({ version, reference }) {
-    return (
-        <div className='BibleReference'>
-            { reference } 
-            { version != null && ' (' + version + ') ' }
-        </div>
-    )
-}
+export type paragraphList = Array<paragraph>
 
-export function BibleQuote({ version, reference }) {
-        const [ response, request ] = useBible()
+export function BibleQuote({ version, reference }: { version: string, reference: string }) {
+    const [ response, request ] = useBible()
     const { error, isLoaded, verse } = response
     request(version, reference)
     if (error) {
@@ -27,21 +21,32 @@ export function BibleQuote({ version, reference }) {
                 Getting from AWS ...
             </div>
         )
-    } else if (verse.paragraph == null) {
+    } else {
+        if (verse.paragraph == null) {
         // return (
         //     <NotFoundOnAWS version={version} reference={reference} />
         // )
-        return (
-            <NotFound version={version} reference={reference} />
-        )
-    } else {
-        return (
-          <Quote verse={verse} />
-        )
+            return (
+                <NotFound version={version} reference={reference} />
+            )
+        } else {
+            return (
+            <Quote verse={verse} />
+            )
+        }
     }
 }
 
-function NotFoundOnAWS({ version, reference }) {
+export function BibleReference({ version, reference }: { version: string, reference: string }) {
+    return (
+        <div className='BibleReference'>
+            { reference } 
+            { version != null && ' (' + version + ') ' }
+        </div>
+    )
+}
+/*
+function NotFoundOnAWS({ version, reference }: { version: string, reference: string }) {
   const [ response, request ] = useBibleGateway()
   const { error, isLoaded, doc } = response
   request(version, reference)
@@ -69,14 +74,14 @@ function NotFoundOnAWS({ version, reference }) {
       )
   }
 }
-
-function NotFound({ version, reference }) {
+*/
+function NotFound({ version, reference }: { version: string, reference: string }) {
     return (
         <h1> Not found the quote: {reference} [ {version} ] </h1>
     )
 }
 
-function Quote({ verse }) {
+function Quote({ verse }: { verse: verse }) {
     return (
         <div className="BibleQuote">
             <ParagraphList className='BibleText' paragraphs={verse.paragraph} />

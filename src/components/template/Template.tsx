@@ -5,6 +5,7 @@ import { Meditation } from '../meditation/Meditation'
 import { Api } from '../../services/Api'
 import type { parameters, template } from './LocalTemplates'
 import type { office } from '../../hooks/useOffice'
+import { part } from '../common/Line'
 
 function content (template: template, office: office){
   if (template.text != null){
@@ -26,7 +27,7 @@ export function Template({ template, office }: { template: template; office: off
   if (name != null){
     // named component
     if (name === 'Heading'){
-      return ( <Heading template={template.parameters} />)
+      return ( <Heading template={template.parameters as part} />)
     } else if (name === 'BibleQuote'){
       const templateParameters = template.parameters as parameters
       return ( <BibleQuote reference={templateParameters.reference} version={templateParameters.version} />)

@@ -1,3 +1,5 @@
+import { part } from "../common/Line";
+
 // new templates
 export type parameters = {
     [index: string]: string
@@ -9,7 +11,7 @@ export type template = {
     text?: string;
     name?: string;
     items?: Array<template>;
-    parameters?: parameters
+    parameters?: parameters | part
 }
 type templates = {
     [index: string]: template

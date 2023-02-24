@@ -1,25 +1,25 @@
-export function Part({ type, children }) {
+export function Part({ tag, children }: {tag?: string; children: React.ReactNode}) {
   return (
     <>
-      { (type === 'h1') && (
+      { (tag === 'h1') && (
         <h1> { children } </h1>
         )}
-      { (type === 'h2') && (
+      { (tag === 'h2') && (
         <h2> { children } </h2>
         )}
-      { (type === 'h3') && (
+      { (tag === 'h3') && (
         <h3> { children } </h3>
         )}
-      { (type === 'h4') && (
+      { (tag === 'h4') && (
         <h4> { children } </h4>
         )}
-      { (type === 'h5') && (
+      { (tag === 'h5') && (
         <h5> { children } </h5>
         )}
-      { (type === 'em') && (
+      { (tag === 'em') && (
         <em> { children } </em>
         )}
-      { (type == null) && (
+      { (tag == null) && (
         <> { children } </>
         )}
     </>
