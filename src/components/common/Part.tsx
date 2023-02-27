@@ -1,3 +1,5 @@
+import './common.css'
+
 export function Part({ tag, children }: {tag?: string; children: React.ReactNode}) {
   return (
     <>

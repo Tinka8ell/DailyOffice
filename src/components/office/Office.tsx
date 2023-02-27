@@ -3,9 +3,6 @@ import { Header } from '../header/Header'
 import { Body } from '../body/Body'
 import { Footer } from '../footer/Footer'
 
-//import DatePicker from 'react-datepicker'
-import 'react-datepicker/dist/react-datepicker.css'
-
 export function Office() {
     const [office, updateOffice] = useOffice()
 

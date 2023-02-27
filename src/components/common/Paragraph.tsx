@@ -6,7 +6,7 @@ export type line = { parts: Array<part> }
 
 export function Paragraph({ lines }: { lines: Array<line>}) {
   return (
-    <>
+    <div className='Paragraph'>
       {
         lines.map((line, index) => (
           <>
@@ -15,6 +15,6 @@ export function Paragraph({ lines }: { lines: Array<line>}) {
           </>
         ))
       }
-    </>
+    </div>
   )
 }
