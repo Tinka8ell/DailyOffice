@@ -1,30 +1,16 @@
-import { part } from "../common/Line";
-
 // new templates
-export type parameters = {
-    [index: string]: string
-}
-export type template = {
-    div?: true | false;
-    span?: true | false;
-    className?: string;
-    text?: string;
-    name?: string;
-    items?: Array<template>;
-    parameters?: parameters | part
-}
-type templates = {
-    [index: string]: template
-}
-export const templates: templates = {
+
+import type { templateListT } from "./Template"
+
+export const localTemplates: templateListT = {
     "DailyOffice": { 
-        "div": true,
+        "type": "div",
         "className": "dailyOffice",
-        "items": [
+        "children": [
             {
-                "div": true,
-                "className": "h1",
-                "text": "A test daily office"
+                "type": "div",
+                "className": "h2",
+                "children": "A test daily office"
             },
             {
                 "name": "Meditation"
@@ -35,15 +21,13 @@ export const templates: templates = {
         ]
     },
     "meditation": {
-        "div": true, 
+        "type": "div",
         "className": "Meditation",
-        "items": [
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h3",
-                    "text": "A generic meditation"
-                }
+                "type": "div",
+                "className": "h3",
+                "children": "A generic meditation"
             },
             {
                 "name": "BibleQuote",
@@ -53,59 +37,46 @@ export const templates: templates = {
                 }
             },
             {
-                "div": true, 
+                "type": "div",
                 "className": "Prayers",
-                "items": [
+                "children": [
                     {
-                        "name": "Heading",
-                        "parameters": {
-                            "tag": "h3",
-                            "text": "Prayer One"
-                        }
+                        "type": "div",
+                        "className": "h3",
+                        "children": "Prayer One"
                     },
                     {
-                        "div": true, 
+                        "type": "div",
                         "className": "Paragraphs",
-                        "items": [
+                        "children": [
                             {
-                                "div": true,
-                                "className": "p",
-                                "items": [
+                                "type": "div",
+                                "className": "Paragraph",
+                                "children": [
                                     {
-                                        "div": true,
+                                        "type": "div",
                                         "className": "Line",
-                                        "items": [
+                                        "children": [
+                                            "A line with an",
                                             {
-                                                "text": "A line with an"
-                                            },
-                                            {
-                                                "span": true,
+                                                "type": "span",
                                                 "className": "em",
-                                                "text": " important "
+                                                "children": " important "
                                             },
-                                            {
-                                                "text": "part"
-                                            }
+                                            "part"
                                         ]
                                     },
                                     {
-                                        "name": "LineBreak",
-                                    },
-                                    {
-                                        "div": true,
+                                        "type": "div",
                                         "className": "Line",
-                                        "items": [
+                                        "children": [
+                                            "A second line with an",
                                             {
-                                                "text": "A second line with an"
-                                            },
-                                            {
-                                                "span": true,
+                                                "type": "span",
                                                 "className": "em",
-                                                "text": " important "
+                                                "children": " important "
                                             },
-                                            {
-                                                "text": "part"
-                                            }
+                                            "part"
                                         ]
                                     }
                                 ]
@@ -147,15 +118,13 @@ export const templates: templates = {
         "name": "DailyOffice"
     },
     "Meditation-1": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 1"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 1"
             },
             {
                 "name": "meditation",
@@ -163,15 +132,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-2": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 2"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 2"
             },
             {
                 "name": "meditation",
@@ -179,15 +146,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-3": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 3"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 3"
             },
             {
                 "name": "meditation",
@@ -195,15 +160,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-4": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 4"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 4"
             },
             {
                 "name": "meditation",
@@ -211,15 +174,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-5": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 5"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 5"
             },
             {
                 "name": "meditation",
@@ -227,15 +188,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-6": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 6"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 6"
             },
             {
                 "name": "meditation",
@@ -243,15 +202,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-7": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 7"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 7"
             },
             {
                 "name": "meditation",
@@ -259,15 +216,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-8": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 8"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 8"
             },
             {
                 "name": "meditation",
@@ -275,15 +230,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-9": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 9"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 9"
             },
             {
                 "name": "meditation",
@@ -291,15 +244,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-10": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 10"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 10"
             },
             {
                 "name": "meditation",
@@ -307,15 +258,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-11": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 11"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 11"
             },
             {
                 "name": "meditation",
@@ -323,15 +272,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-12": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 12"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 12"
             },
             {
                 "name": "meditation",
@@ -339,15 +286,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-13": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 13"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 13"
             },
             {
                 "name": "meditation",
@@ -355,15 +300,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-14": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 14"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 14"
             },
             {
                 "name": "meditation",
@@ -371,15 +314,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-15": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 15"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 15"
             },
             {
                 "name": "meditation",
@@ -387,15 +328,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-16": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 16"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 16"
             },
             {
                 "name": "meditation",
@@ -403,15 +342,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-17": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 17"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 17"
             },
             {
                 "name": "meditation",
@@ -419,15 +356,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-18": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 18"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 18"
             },
             {
                 "name": "meditation",
@@ -435,15 +370,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-19": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 19"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 19"
             },
             {
                 "name": "meditation",
@@ -451,15 +384,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-20": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 20"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 20"
             },
             {
                 "name": "meditation",
@@ -467,15 +398,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-21": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 21"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 21"
             },
             {
                 "name": "meditation",
@@ -483,15 +412,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-22": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 22"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 22"
             },
             {
                 "name": "meditation",
@@ -499,15 +426,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-23": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 23"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 23"
             },
             {
                 "name": "meditation",
@@ -515,15 +440,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-24": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 24"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 24"
             },
             {
                 "name": "meditation",
@@ -531,15 +454,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-25": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 25"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 25"
             },
             {
                 "name": "meditation",
@@ -547,15 +468,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-26": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 26"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 26"
             },
             {
                 "name": "meditation",
@@ -563,15 +482,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-27": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 27"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 27"
             },
             {
                 "name": "meditation",
@@ -579,15 +496,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-28": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 28"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 28"
             },
             {
                 "name": "meditation",
@@ -595,15 +510,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-29": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 29"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 29"
             },
             {
                 "name": "meditation",
@@ -611,15 +524,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-30": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 30"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 30"
             },
             {
                 "name": "meditation",
@@ -627,15 +538,13 @@ export const templates: templates = {
         ]
     },
     "Meditation-31": { 
-        "div": true,
-        "className": "bibleQuote",
-        "items": [
+        "type": "div",
+        "className": "meditation",
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "Meditation for day 31"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "Meditation for day 31"
             },
             {
                 "name": "meditation",
@@ -643,167 +552,107 @@ export const templates: templates = {
         ]
     },
     "Psalm 3:1-4": {
-        "div": true,
+        "type": "div",
         "className": "bibleQuote",
-        "items": [
+        "children": [
             {
-                "name": "Heading",
-                "parameters": {
-                    "tag": "h2",
-                    "text": "A sample bible quote"
-                }
+                "type": "div",
+                "className": "h2",
+                "children": "A sample bible quote"
             },
             {
-                "div": true,
+                "type": "div",
                 "className": "poetry?",
-                "items": [
+                "children": [
                     {
-                        "div": true,
-                        "items": [
+                        "type": "div",
+                        "className": "Paragraphs",
+                        "children": [
                             {
-                                "div": true,
-                                "className": "p",
-                                "items": [
+                                "type": "div",
+                                "className": "Paragraph",
+                                "children": [
                                     {
-                                    "span": true,
-                                    "className": "line",
-                                    "items": [
-                                        {
-                                            "span": true,
-                                            "text": "O "
-                                        },
-                                        {
-                                            "span": true,
-                                            "className": "lord",
-                                            "text": " Lord"
-                                        },
-                                        {
-                                            "span": true,
-                                            "text": ", I have so many enemies;"
-                                        }
-                                    ]
+                                        "type": "div",
+                                        "className": "Line",
+                                        "children": [
+                                            "O ",
+                                            {
+                                                "type": "span",
+                                                "className": "lord",
+                                                "children": " Lord"
+                                            },
+                                            ", I have so many enemies;"
+                                        ]
                                     },
                                     {
-                                        "name": "LineBreak",
+                                        "type": "div",
+                                        "className": "Line",
+                                        "children": [
+                                            "so many are against me.",
+                                        ]
                                     },
                                     {
-                                    "span": true,
-                                    "className": "line",
-                                    "items": [
-                                        {
-                                            "span": true,
-                                            "text": "so many are against me."
-                                        }
-                                    ]
+                                        "type": "div",
+                                        "className": "Line",
+                                        "children": "So many are saying,"
                                     },
                                     {
-                                        "name": "LineBreak",
+                                        "type": "div",
+                                        "className": "Line",
+                                        "children": "\"God will never rescue him!\""
                                     },
                                     {
-                                    "span": true,
-                                    "className": "line",
-                                    "items": [
-                                        {
-                                            "span": true,
-                                            "text": "So many are saying,"
-                                        }
-                                    ]
-                                    },
-                                    {
-                                        "name": "LineBreak",
-                                    },
-                                    {
-                                    "span": true,
-                                    "className": "line",
-                                    "items": [
-                                        {
-                                            "span": true,
-                                            "text": "\"God will never rescue him!\""
-                                        },
-                                        {
-                                            "span": true,
-                                            "className": "selah",
-                                            "text": " Interlude"
-                                        }
-                                    ]
+                                        "type": "div",
+                                        "className": "selah",
+                                        "children": " Interlude"
                                     }
                                 ]
                             },
                             {
-                                "div": true,
-                                "className": "p",
-                                "items": [
+                                "type": "div",
+                                "className": "Paragraph",
+                                "children": [
                                     {
-                                        "span": true,
+                                        "type": "div",
                                         "className": "line",
-                                        "items": [
+                                        "children": [
+                                            "But you, O",
                                             {
-                                                "span": true,
-                                                "text": "But you, O"
-                                            },
-                                            {
-                                                "span": true,
+                                                "type": "span",
                                                 "className": "lord",
-                                                "text": " Lord"
+                                                "children": " Lord"
                                             },
-                                            {
-                                                "span": true,
-                                                "text": ", are a shield around me;"
-                                            }
+                                            ", are a shield around me;"
                                         ]
                                     },
                                     {
-                                        "name": "LineBreak",
-                                    },
-                                    {
-                                        "span": true,
+                                        "type": "div",
                                         "className": "line",
-                                        "items": [
-                                            {
-                                                "span": true,
-                                                "text": "you are my glory, the one who holds my head high."
-                                            }
-                                        ]
+                                        "children": "you are my glory, the one who holds my head high."
                                     },
                                     {
-                                        "name": "LineBreak",
-                                    },
-                                    {
-                                        "span": true,
+                                        "type": "div",
                                         "className": "line",
-                                        "items": [
+                                        "children": [
+                                            "I cried out to the",
                                             {
-                                                "span": true,
-                                                "text": "I cried out to the"
-                                            },
-                                            {
-                                                "span": true,
+                                                "type": "span",
                                                 "className": "lord",
-                                                "text": "Lord"
+                                                "children": " Lord"
                                             },
-                                            {
-                                                "span": true,
-                                                "text": ","
-                                            }
+                                            ","
                                         ]
                                     },
                                     {
-                                        "name": "LineBreak",
+                                        "type": "div",
+                                        "className": "Line",
+                                        "children": "and he answered me from his holy mountain."
                                     },
                                     {
-                                        "span": true,
-                                        "className": "line",
-                                        "items": [
-                                            {
-                                                "span": true,
-                                                "text": "and he answered me from his holy mountain."
-                                            },
-                                            {
-                                                "span": true,
-                                                "className": "selah",
-                                                "text": " Interlude"
-                                            }
-                                        ]
+                                        "type": "div",
+                                        "className": "selah",
+                                        "children": " Interlude"
                                     }
                                 ]
                             }

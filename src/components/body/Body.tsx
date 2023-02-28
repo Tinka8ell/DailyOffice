@@ -1,11 +1,11 @@
-import { Template } from '../template/Template'
 import type { office } from '../../hooks/useOffice'
+import { OfficeTemplate } from '../template/Template'
 import './body.css'
 
 export function Body({ office }: { office: office }) {
   const officeName = office.name.replace(/\s/g, '')
   return (
-    <Template template={ { name: officeName } } office={office} />
+    <OfficeTemplate newTemplate={ { name: officeName } } office={office} />
   )
 }
 

@@ -1,8 +1,8 @@
 import { apiConfig } from './apiConfig';
 
 // temporarily use local data:
-import { templates} from '../components/template/LocalTemplates'
-import type { template} from '../components/template/LocalTemplates'
+import { localTemplates } from '../components/template/LocalTemplates'
+import type { templateT } from '../components/template/Template'
 
 
 
@@ -31,8 +31,8 @@ export class Api {
         return json
     }
 
-    static getTemplate(name: string): template {
-        return templates[name]
+    static getTemplate(name: string): templateT {
+        return localTemplates[name]
     }
 
 }
