@@ -3,14 +3,14 @@
 import type { templateListT } from "./Template"
 
 export const localTemplates: templateListT = {
-    "DailyOffice": { 
+    "daily-office": { 
         "type": "div",
-        "className": "dailyOffice",
-        "children": [
+        "className": "daily-office",
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "A test daily office"
+                "content": "A test daily office"
             },
             {
                 "name": "Meditation"
@@ -23,11 +23,11 @@ export const localTemplates: templateListT = {
     "meditation": {
         "type": "div",
         "className": "Meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h3",
-                "children": "A generic meditation"
+                "content": "A generic meditation"
             },
             {
                 "name": "BibleQuote",
@@ -39,29 +39,29 @@ export const localTemplates: templateListT = {
             {
                 "type": "div",
                 "className": "Prayers",
-                "children": [
+                "content": [
                     {
                         "type": "div",
                         "className": "h3",
-                        "children": "Prayer One"
+                        "content": "Prayer One"
                     },
                     {
                         "type": "div",
                         "className": "Paragraphs",
-                        "children": [
+                        "content": [
                             {
                                 "type": "div",
                                 "className": "Paragraph",
-                                "children": [
+                                "content": [
                                     {
                                         "type": "div",
                                         "className": "Line",
-                                        "children": [
+                                        "content": [
                                             "A line with an",
                                             {
                                                 "type": "span",
                                                 "className": "em",
-                                                "children": " important "
+                                                "content": " important "
                                             },
                                             "part"
                                         ]
@@ -69,12 +69,12 @@ export const localTemplates: templateListT = {
                                     {
                                         "type": "div",
                                         "className": "Line",
-                                        "children": [
+                                        "content": [
                                             "A second line with an",
                                             {
                                                 "type": "span",
                                                 "className": "em",
-                                                "children": " important "
+                                                "content": " important "
                                             },
                                             "part"
                                         ]
@@ -88,43 +88,43 @@ export const localTemplates: templateListT = {
         ]
     },
     "MorningPrayers": { 
-        "name": "DailyOffice"
+        "name": "daily-office"
     },
     "MiddayPrayers": { 
-        "name": "DailyOffice"
+        "name": "daily-office"
     },
     "EveningPrayers": { 
-        "name": "DailyOffice"
+        "name": "daily-office"
     },
     "MondayCompline": { 
-        "name": "DailyOffice"
+        "name": "daily-office"
     },
     "TuesdayCompline": { 
-        "name": "DailyOffice"
+        "name": "daily-office"
     },
     "WednesdayCompline": { 
-        "name": "DailyOffice"
+        "name": "daily-office"
     },
     "ThurdayCompline": { 
-        "name": "DailyOffice"
+        "name": "daily-office"
     },
     "FridayCompline": { 
-        "name": "DailyOffice"
+        "name": "daily-office"
     },
     "SaturdayCompline": { 
-        "name": "DailyOffice"
+        "name": "daily-office"
     },
     "SundayCompline": { 
-        "name": "DailyOffice"
+        "name": "daily-office"
     },
     "Meditation-1": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 1"
+                "content": "Meditation for day 1"
             },
             {
                 "name": "meditation",
@@ -134,11 +134,11 @@ export const localTemplates: templateListT = {
     "Meditation-2": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 2"
+                "content": "Meditation for day 2"
             },
             {
                 "name": "meditation",
@@ -148,11 +148,11 @@ export const localTemplates: templateListT = {
     "Meditation-3": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 3"
+                "content": "Meditation for day 3"
             },
             {
                 "name": "meditation",
@@ -162,11 +162,11 @@ export const localTemplates: templateListT = {
     "Meditation-4": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 4"
+                "content": "Meditation for day 4"
             },
             {
                 "name": "meditation",
@@ -176,11 +176,11 @@ export const localTemplates: templateListT = {
     "Meditation-5": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 5"
+                "content": "Meditation for day 5"
             },
             {
                 "name": "meditation",
@@ -190,11 +190,11 @@ export const localTemplates: templateListT = {
     "Meditation-6": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 6"
+                "content": "Meditation for day 6"
             },
             {
                 "name": "meditation",
@@ -204,11 +204,11 @@ export const localTemplates: templateListT = {
     "Meditation-7": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 7"
+                "content": "Meditation for day 7"
             },
             {
                 "name": "meditation",
@@ -218,11 +218,11 @@ export const localTemplates: templateListT = {
     "Meditation-8": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 8"
+                "content": "Meditation for day 8"
             },
             {
                 "name": "meditation",
@@ -232,11 +232,11 @@ export const localTemplates: templateListT = {
     "Meditation-9": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 9"
+                "content": "Meditation for day 9"
             },
             {
                 "name": "meditation",
@@ -246,11 +246,11 @@ export const localTemplates: templateListT = {
     "Meditation-10": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 10"
+                "content": "Meditation for day 10"
             },
             {
                 "name": "meditation",
@@ -260,11 +260,11 @@ export const localTemplates: templateListT = {
     "Meditation-11": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 11"
+                "content": "Meditation for day 11"
             },
             {
                 "name": "meditation",
@@ -274,11 +274,11 @@ export const localTemplates: templateListT = {
     "Meditation-12": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 12"
+                "content": "Meditation for day 12"
             },
             {
                 "name": "meditation",
@@ -288,11 +288,11 @@ export const localTemplates: templateListT = {
     "Meditation-13": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 13"
+                "content": "Meditation for day 13"
             },
             {
                 "name": "meditation",
@@ -302,11 +302,11 @@ export const localTemplates: templateListT = {
     "Meditation-14": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 14"
+                "content": "Meditation for day 14"
             },
             {
                 "name": "meditation",
@@ -316,11 +316,11 @@ export const localTemplates: templateListT = {
     "Meditation-15": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 15"
+                "content": "Meditation for day 15"
             },
             {
                 "name": "meditation",
@@ -330,11 +330,11 @@ export const localTemplates: templateListT = {
     "Meditation-16": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 16"
+                "content": "Meditation for day 16"
             },
             {
                 "name": "meditation",
@@ -344,11 +344,11 @@ export const localTemplates: templateListT = {
     "Meditation-17": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 17"
+                "content": "Meditation for day 17"
             },
             {
                 "name": "meditation",
@@ -358,11 +358,11 @@ export const localTemplates: templateListT = {
     "Meditation-18": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 18"
+                "content": "Meditation for day 18"
             },
             {
                 "name": "meditation",
@@ -372,11 +372,11 @@ export const localTemplates: templateListT = {
     "Meditation-19": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 19"
+                "content": "Meditation for day 19"
             },
             {
                 "name": "meditation",
@@ -386,11 +386,11 @@ export const localTemplates: templateListT = {
     "Meditation-20": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 20"
+                "content": "Meditation for day 20"
             },
             {
                 "name": "meditation",
@@ -400,11 +400,11 @@ export const localTemplates: templateListT = {
     "Meditation-21": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 21"
+                "content": "Meditation for day 21"
             },
             {
                 "name": "meditation",
@@ -414,11 +414,11 @@ export const localTemplates: templateListT = {
     "Meditation-22": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 22"
+                "content": "Meditation for day 22"
             },
             {
                 "name": "meditation",
@@ -428,11 +428,11 @@ export const localTemplates: templateListT = {
     "Meditation-23": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 23"
+                "content": "Meditation for day 23"
             },
             {
                 "name": "meditation",
@@ -442,11 +442,11 @@ export const localTemplates: templateListT = {
     "Meditation-24": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 24"
+                "content": "Meditation for day 24"
             },
             {
                 "name": "meditation",
@@ -456,11 +456,11 @@ export const localTemplates: templateListT = {
     "Meditation-25": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 25"
+                "content": "Meditation for day 25"
             },
             {
                 "name": "meditation",
@@ -470,11 +470,11 @@ export const localTemplates: templateListT = {
     "Meditation-26": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 26"
+                "content": "Meditation for day 26"
             },
             {
                 "name": "meditation",
@@ -484,11 +484,11 @@ export const localTemplates: templateListT = {
     "Meditation-27": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 27"
+                "content": "Meditation for day 27"
             },
             {
                 "name": "meditation",
@@ -498,11 +498,11 @@ export const localTemplates: templateListT = {
     "Meditation-28": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 28"
+                "content": "Meditation for day 28"
             },
             {
                 "name": "meditation",
@@ -512,11 +512,11 @@ export const localTemplates: templateListT = {
     "Meditation-29": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 29"
+                "content": "Meditation for day 29"
             },
             {
                 "name": "meditation",
@@ -526,11 +526,11 @@ export const localTemplates: templateListT = {
     "Meditation-30": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 30"
+                "content": "Meditation for day 30"
             },
             {
                 "name": "meditation",
@@ -540,11 +540,11 @@ export const localTemplates: templateListT = {
     "Meditation-31": { 
         "type": "div",
         "className": "meditation",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "Meditation for day 31"
+                "content": "Meditation for day 31"
             },
             {
                 "name": "meditation",
@@ -554,33 +554,33 @@ export const localTemplates: templateListT = {
     "Psalm 3:1-4": {
         "type": "div",
         "className": "bibleQuote",
-        "children": [
+        "content": [
             {
                 "type": "div",
                 "className": "h2",
-                "children": "A sample bible quote"
+                "content": "A sample bible quote"
             },
             {
                 "type": "div",
                 "className": "poetry?",
-                "children": [
+                "content": [
                     {
                         "type": "div",
                         "className": "Paragraphs",
-                        "children": [
+                        "content": [
                             {
                                 "type": "div",
                                 "className": "Paragraph",
-                                "children": [
+                                "content": [
                                     {
                                         "type": "div",
                                         "className": "Line",
-                                        "children": [
+                                        "content": [
                                             "O ",
                                             {
                                                 "type": "span",
-                                                "className": "lord",
-                                                "children": " Lord"
+                                                "className": "Lord",
+                                                "content": " Lord"
                                             },
                                             ", I have so many enemies;"
                                         ]
@@ -588,58 +588,60 @@ export const localTemplates: templateListT = {
                                     {
                                         "type": "div",
                                         "className": "Line",
-                                        "children": [
+                                        "content": [
                                             "so many are against me.",
                                         ]
                                     },
                                     {
                                         "type": "div",
                                         "className": "Line",
-                                        "children": "So many are saying,"
+                                        "content": "So many are saying,"
                                     },
                                     {
                                         "type": "div",
                                         "className": "Line",
-                                        "children": "\"God will never rescue him!\""
-                                    },
-                                    {
-                                        "type": "div",
-                                        "className": "selah",
-                                        "children": " Interlude"
+                                        "content": [
+                                            "\"God will never rescue him!\"",
+                                            {
+                                                "type": "span",
+                                                "className": "Selah",
+                                                "content": " Interlude"
+                                            }
+                                        ]
                                     }
                                 ]
                             },
                             {
                                 "type": "div",
                                 "className": "Paragraph",
-                                "children": [
+                                "content": [
                                     {
                                         "type": "div",
-                                        "className": "line",
-                                        "children": [
+                                        "className": "Line",
+                                        "content": [
                                             "But you, O",
                                             {
                                                 "type": "span",
-                                                "className": "lord",
-                                                "children": " Lord"
+                                                "className": "Lord",
+                                                "content": " Lord"
                                             },
                                             ", are a shield around me;"
                                         ]
                                     },
                                     {
                                         "type": "div",
-                                        "className": "line",
-                                        "children": "you are my glory, the one who holds my head high."
+                                        "className": "Line",
+                                        "content": "you are my glory, the one who holds my head high."
                                     },
                                     {
                                         "type": "div",
-                                        "className": "line",
-                                        "children": [
+                                        "className": "Line",
+                                        "content": [
                                             "I cried out to the",
                                             {
                                                 "type": "span",
-                                                "className": "lord",
-                                                "children": " Lord"
+                                                "className": "Lord",
+                                                "content": " Lord"
                                             },
                                             ","
                                         ]
@@ -647,12 +649,14 @@ export const localTemplates: templateListT = {
                                     {
                                         "type": "div",
                                         "className": "Line",
-                                        "children": "and he answered me from his holy mountain."
-                                    },
-                                    {
-                                        "type": "div",
-                                        "className": "selah",
-                                        "children": " Interlude"
+                                        "content": [
+                                            "and he answered me from his holy mountain.",
+                                            {
+                                                "type": "span",
+                                                "className": "Selah",
+                                                "content": " Interlude"
+                                            }
+                                        ]
                                     }
                                 ]
                             }

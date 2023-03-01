@@ -1,4 +1,4 @@
-import { Template } from '../template/Template'
+import { NewTemplate } from '../template/Template'
 import { Api } from '../../services/Api'
 import type { office } from '../../hooks/useOffice'
 
@@ -7,7 +7,7 @@ export function Meditation({ office }: { office: office }) {
   const meditationName = 'Meditation-' + meditation
   const subtemplate = Api.getTemplate(meditationName)
   return (
-    <Template template={subtemplate} office={office} />
+    <NewTemplate newTemplate={subtemplate} />
     )
 }
 
