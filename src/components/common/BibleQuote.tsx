@@ -1,7 +1,8 @@
 import { useBible } from '../../hooks/useBible'
 // import { useBibleGateway } from '../../hooks/useBibleGateway'
-import { Template, templateListT, templateT, templateTagT } from '../template/Template'
+import { Template, templateT, templateTagT } from '../template/Template'
 import { defaultOffice } from '../../hooks/useOffice'
+import './common.css'
 
 export type part = { tag?: string; text: string}
 export type line = { parts: Array<part> }
