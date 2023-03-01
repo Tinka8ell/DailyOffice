@@ -105,7 +105,7 @@ export const localTemplates: templateListT = {
     "WednesdayCompline": { 
         "name": "daily-office"
     },
-    "ThurdayCompline": { 
+    "ThursdayCompline": { 
         "name": "daily-office"
     },
     "FridayCompline": { 
