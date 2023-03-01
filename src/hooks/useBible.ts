@@ -1,13 +1,6 @@
 import { useEffect, useState } from 'react'
+import { verse } from '../components/common/BibleQuote';
 import { Api } from '../services/Api'
-
-import { paragraph } from '../components/common/ParagraphList';
-
-export type verse = { 
-    reference: string; 
-    version: string;
-    paragraph: Array<paragraph>; 
-}
 
 type message = null | { message: string }
 
