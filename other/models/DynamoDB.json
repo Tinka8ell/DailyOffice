@@ -1,0 +1,117 @@
+{
+    "all": [
+        {
+            "VersionReference": {
+                "S": "[NLT]John+3:16"
+            },
+                "paragraph": {
+                "L": [
+                    {
+                        "L": [
+                            {
+                                "M": {
+                                    "text": {
+                                        "S": "[NLT]John+3:16 - \"For this is how God loved the world: He gave his one and only "
+                                    }
+                                }
+                            },
+                            {
+                                "M": {
+                                    "text": {
+                                        "S": "Son"
+                                    },
+                                    "type": {
+                                        "S": "em"
+                                    }
+                                }
+                            },
+                            {
+                                "M": {
+                                    "text": {
+                                        "S": ", so that everyone who believes in him will not perish but have eternal life."
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "VersionReference": {
+                "S": "[MLT]John 3:16"
+            },
+            "paragraph": [
+                {
+                    "L": [
+                        {
+                            "L": [
+                                {
+                                    "M": {
+                                        "text": {
+                                            "S": "[MLT]John 3:16 - \"For this is how God loved the world: He gave his one and only "
+                                        }
+                                    }   
+                                },
+                                {
+                                    "M": {
+                                        "type": {
+                                            "S":"em"
+                                        },
+                                        "text": {
+                                            "S": "Son"
+                                        }
+                                    }
+                                },
+                                {
+                                    "M": {
+                                        "text": {
+                                            "S": ", so that everyone who believes in him will not perish but have eternal life."
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "VersionReference": {
+              "S": "[NLT]John 3:16"
+            },
+            "paragraph": {
+                "L": [
+                    {
+                        "L": [
+                            {
+                                "M": {
+                                    "text": {
+                                        "S": "[NLT]John 3:16 - \"For this is how God loved the world: He gave his one and only "
+                                    }
+                                }
+                            },
+                            {
+                                "M": {
+                                    "text": {
+                                        "S": "Son"
+                                    },
+                                    "type": {
+                                        "S": "em"
+                                    }
+                                }
+                            },
+                            {
+                                "M": {
+                                    "text": {
+                                        "S": ", so that everyone who believes in him will not perish but have eternal life."
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}
