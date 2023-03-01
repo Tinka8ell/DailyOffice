@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { verse } from '../components/common/BibleQuote';
+import { verse } from '../components/BibleQuote/BibleQuote';
 import { Api } from '../services/Api'
 
 type message = null | { message: string }

@@ -2,7 +2,7 @@ import { useBible } from '../../hooks/useBible'
 // import { useBibleGateway } from '../../hooks/useBibleGateway'
 import { Template, templateT, templateTagT } from '../template/Template'
 import { defaultOffice } from '../../hooks/useOffice'
-import './common.css'
+import './BibleQuote.css'
 
 export type part = { tag?: string; text: string}
 export type line = { parts: Array<part> }

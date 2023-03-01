@@ -1,6 +1,6 @@
 import type { office } from "../../hooks/useOffice";
 import { Api } from "../../services/Api"
-import { BibleQuote, BibleReference } from "../common/BibleQuote"
+import { BibleQuote, BibleReference } from "../BibleQuote/BibleQuote"
 import { Meditation } from "../meditation/Meditation"
 
 type templateListT = {
