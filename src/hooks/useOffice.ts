@@ -14,7 +14,7 @@ const officeStrings = [
     'Evening Prayers',
     Compline,
 ]
-const defaultOffice = {
+export const defaultOffice = {
     date: new Date(),
     office: null,
     name: 'Missing',

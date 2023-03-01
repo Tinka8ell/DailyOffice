@@ -23,7 +23,7 @@ type parameters = {
 
 export { templateT, templateNameT, templateTagT, templateListT }
 
-export function NewTemplate({ newTemplate, office }: { newTemplate: templateT; office: office }) {
+export function Template({ newTemplate, office }: { newTemplate: templateT; office: office }) {
   console.log('NewTemplate:', newTemplate)
   if (newTemplate == null) {
     return <h1>Something is very wrong!</h1>
@@ -33,7 +33,7 @@ export function NewTemplate({ newTemplate, office }: { newTemplate: templateT; o
       <>
         {
           newTemplate.map( (template: templateT, index: number) => {
-            return (<NewTemplate key={index} newTemplate={template} office={office} />) 
+            return (<Template key={index} newTemplate={template} office={office} />) 
           })
         }
       </>
@@ -53,13 +53,13 @@ export function NewTemplate({ newTemplate, office }: { newTemplate: templateT; o
       if (taggedTemplate.type === 'div'){
         return (
           <div className={taggedTemplate.className} >
-            <NewTemplate newTemplate={taggedTemplate.content} office={office} />
+            <Template newTemplate={taggedTemplate.content} office={office} />
           </div>
         )
       } else { // as taggedTemplate.type must be 'span'
         return (
           <span className={taggedTemplate.className} >
-            <NewTemplate newTemplate={taggedTemplate.content} office={office} />
+            <Template newTemplate={taggedTemplate.content} office={office} />
           </span>
         )
       } 
@@ -84,7 +84,7 @@ export function NewTemplate({ newTemplate, office }: { newTemplate: templateT; o
         console.log('NewTemplate:subtemplate:', name)
         const subtemplate = Api.getTemplate(name)
         return (
-          <NewTemplate newTemplate={subtemplate} office={office} />
+          <Template newTemplate={subtemplate} office={office} />
         )
       }
     }

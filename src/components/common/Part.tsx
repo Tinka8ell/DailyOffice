@@ -1,29 +1,19 @@
+import { defaultOffice, office } from '../../hooks/useOffice';
+import { Template, templateT, templateTagT } from '../template/Template';
 import './common.css'
 
 export function Part({ tag, children }: {tag?: string; children: React.ReactNode}) {
-  return (
-    <>
-      { (tag === 'h1') && (
-        <h1> { children } </h1>
-        )}
-      { (tag === 'h2') && (
-        <h2> { children } </h2>
-        )}
-      { (tag === 'h3') && (
-        <h3> { children } </h3>
-        )}
-      { (tag === 'h4') && (
-        <h4> { children } </h4>
-        )}
-      { (tag === 'h5') && (
-        <h5> { children } </h5>
-        )}
-      { (tag === 'em') && (
-        <em> { children } </em>
-        )}
-      { (tag == null) && (
-        <> { children } </>
-        )}
-    </>
-  )
+if (tag == null){
+    return (<> { children } </>)
+  } else {
+    const template: templateTagT = {
+      type: 'span',
+      className: tag,
+      content: children as templateT
+    }
+    if (tag[0] === 'h'){
+      template.type = 'div'
+    }
+    return (<Template newTemplate={template} office={defaultOffice} />)
+  }
 } 
