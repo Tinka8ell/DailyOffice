@@ -1,8 +1,10 @@
-import { useBible } from '../../hooks/useBible'
 // import { useBibleGateway } from '../../hooks/useBibleGateway'
-import { Template, templateT, templateTagT } from '../template/Template'
+import type { templateT, templateTagT } from '../template/Template'
+import { Template } from '../template/Template'
 import { defaultOffice } from '../../hooks/useOffice'
 import './BibleQuote.css'
+import { useQuery } from 'react-query'
+import { Api } from '../../services/Api'
 
 export type part = { tag?: string; text: string}
 export type line = { parts: Array<part> }
@@ -66,23 +68,22 @@ function paragraphListToTemplate (paragraphs: paragraphList, className?: string)
 }
 
 export function BibleQuote({ version, reference }: { version: string, reference: string }) {
-    const [ response, request ] = useBible()
-    const { error, isLoaded, verse } = response
-    request(version, reference)
-    if (error) {
+    const result = useQuery([ 'BibleQuote', version, reference ], Api.fetchFromAWS)
+    if (result.isError) {
         return (
             <div>
-                BibleQuote({version}, {reference}) - Error: {error.message}
+                {`BibleQuote(${version}, ${reference}) - Error: ${result.error}`}
             </div>
         )
-    } else if (!isLoaded) {
+    } else if (result.isLoading) {
         return (
             <div>
                 Getting from AWS ...
             </div>
         )
     } else {
-        console.log('verse:', verse)
+        const verse = result.data as verse 
+        // console.log('verse:', verse)
         if (verse.reference == null || verse.version == null) {
         // return (
         //     <NotFoundOnAWS version={version} reference={reference} />
@@ -91,8 +92,8 @@ export function BibleQuote({ version, reference }: { version: string, reference:
                 <NotFound version={version} reference={reference} />
             )
         } else {
-            console.log('verse.reference:', verse.reference)
-            console.log('verse.version:', verse.version)
+            // console.log('verse.reference:', verse.reference)
+            // console.log('verse.version:', verse.version)
             return (<Quote verse={verse} />)
         }
     }
@@ -100,7 +101,7 @@ export function BibleQuote({ version, reference }: { version: string, reference:
 
 export function BibleReference({ version, reference }: 
     { version: string, reference: string }) {
-    console.log('BibleReference: version:', version, ", reference:", reference)
+    // console.log('BibleReference: version:', version, ", reference:", reference)
     const content = [ reference ]
     if (version != null) {
         content[1] = ' (' + version + ') '
@@ -153,7 +154,7 @@ function NotFound({ version, reference }: { version: string, reference: string }
 }
 
 function Quote({ verse }: { verse: verse }) {
-    console.log('Quote: verse:', verse)
+    // console.log('Quote: verse:', verse)
     const isOld = Object.keys(verse).includes('paragraph')
     const template: templateT = isOld? 
         paragraphListToTemplate ((verse as verseOld).paragraph, 'BibleText'):

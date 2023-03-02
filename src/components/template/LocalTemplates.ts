@@ -37,6 +37,27 @@ export const localTemplates: templateListT = {
                 }
             },
             {
+                "name": "BibleQuote",
+                "parameters": {
+                    "version": "NLT",
+                    "reference": "John+3:16"
+                }
+            },
+            {
+                "name": "BibleQuote",
+                "parameters": {
+                    "version": "MLT",
+                    "reference": "John 3:16"
+                }
+            },
+            {
+                "name": "BibleQuote",
+                "parameters": {
+                    "version": "NLT",
+                    "reference": "Psalm 3:1-4"
+                }
+            },
+            {
                 "type": "div",
                 "className": "Prayers",
                 "content": [
@@ -562,7 +583,32 @@ export const localTemplates: templateListT = {
             },
             {
                 "type": "div",
-                "className": "poetry?",
+                "className": "paragraphs",
+                "content": [
+                  "\"For this is how God loved the world: He gave his one and only ",
+                  {
+                   "className": "em",
+                   "content": "Son",
+                   "type": "span"
+                  },
+                  ", so that everyone who believes in him will not perish but have eternal life.",
+                  {
+                    "name": "BibleReference",
+                    "parameters": {
+                        "reference": "John 3:16",
+                        "version": "NLT"
+                            }
+                        }
+                ],
+               },
+                {
+                    "type": "div",
+                    "className": "h2",
+                    "content": "A longer bible quote"
+                },
+                {
+                    "type": "div",
+                "className": "Poetry",
                 "content": [
                     {
                         "type": "div",
