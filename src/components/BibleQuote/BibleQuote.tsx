@@ -8,10 +8,16 @@ export type part = { tag?: string; text: string}
 export type line = { parts: Array<part> }
 export type paragraph = { lines: Array<line> }
 export type paragraphList = Array<paragraph>
-export type verse = { 
+export type verse = verseNew | verseOld
+export type verseOld = { 
     reference: string; 
     version: string;
     paragraph: Array<paragraph>; 
+}
+export type verseNew = { 
+    reference: string; 
+    version: string;
+    paragraphs: templateT; 
 }
 
 function partToTemplate (part: part): templateT{
@@ -76,7 +82,8 @@ export function BibleQuote({ version, reference }: { version: string, reference:
             </div>
         )
     } else {
-        if (verse.paragraph == null) {
+        console.log('verse:', verse)
+        if (verse.reference == null || verse.version == null) {
         // return (
         //     <NotFoundOnAWS version={version} reference={reference} />
         // )
@@ -84,15 +91,16 @@ export function BibleQuote({ version, reference }: { version: string, reference:
                 <NotFound version={version} reference={reference} />
             )
         } else {
-            return (
-            <Quote verse={verse} />
-            )
+            console.log('verse.reference:', verse.reference)
+            console.log('verse.version:', verse.version)
+            return (<Quote verse={verse} />)
         }
     }
 }
 
 export function BibleReference({ version, reference }: 
     { version: string, reference: string }) {
+    console.log('BibleReference: version:', version, ", reference:", reference)
     const content = [ reference ]
     if (version != null) {
         content[1] = ' (' + version + ') '
@@ -145,7 +153,11 @@ function NotFound({ version, reference }: { version: string, reference: string }
 }
 
 function Quote({ verse }: { verse: verse }) {
-    const template: templateT = paragraphListToTemplate (verse.paragraph, 'BibleText')
+    console.log('Quote: verse:', verse)
+    const isOld = Object.keys(verse).includes('paragraph')
+    const template: templateT = isOld? 
+        paragraphListToTemplate ((verse as verseOld).paragraph, 'BibleText'):
+        (verse as verseNew).paragraphs
     const reference = [
         verse.reference
     ]

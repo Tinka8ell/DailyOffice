@@ -24,7 +24,7 @@ type parameters = {
 export { templateT, templateNameT, templateTagT, templateListT }
 
 export function Template({ newTemplate, office }: { newTemplate: templateT; office: office }) {
-  console.log('NewTemplate:', newTemplate)
+  console.log('Template:', newTemplate)
   if (newTemplate == null) {
     return <h1>Something is very wrong!</h1>
   } else if (Array.isArray(newTemplate)) {
@@ -69,19 +69,19 @@ export function Template({ newTemplate, office }: { newTemplate: templateT; offi
       const namedTemplate = newTemplate as templateNameT
       const name = namedTemplate.name
       if (name === 'Meditation'){
-        console.log('NewTemplate:Meditation')
+        console.log('Template:Meditation')
         return ( <Meditation office={office} />)
       } else if (name === 'BibleQuote'){
-        console.log('NewTemplate:BibleQuote')
+        console.log('Template:BibleQuote')
         const templateParameters = namedTemplate.parameters as parameters
         return ( <BibleQuote reference={templateParameters.reference} version={templateParameters.version} />)
       } else if (name === 'BibleReference'){
-        console.log('NewTemplate:BibleReference')
+        console.log('Template:BibleReference')
         const templateParameters = namedTemplate.parameters as parameters
         return ( <BibleReference reference={templateParameters.reference} version={templateParameters.version} />)
       } else {
         // assume it is the name of another template
-        console.log('NewTemplate:subtemplate:', name)
+        console.log('Template:subtemplate:', name)
         const subtemplate = Api.getTemplate(name)
         return (
           <Template newTemplate={subtemplate} office={office} />

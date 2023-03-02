@@ -2,9 +2,7 @@ import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import {
   DynamoDBDocumentClient,
   ScanCommand,
-  PutCommand,
   GetCommand,
-  DeleteCommand,
 } from "@aws-sdk/lib-dynamodb";
 
 const client = new DynamoDBClient({});
@@ -20,67 +18,54 @@ export const handler = async (event, context) => {
   const headers = {
     "Content-Type": "application/json",
   };
-  console.log("Got here");
-  console.log("event.routeKey:", event.routeKey);
-
+  //console.log("Got here");
+  console.log("event:", event);
+  //console.log("path:", event.requestContext.http.path);
+  //console.log("method:", event.requestContext.http.method);
+  
   try {
-    switch (event.routeKey) {
-      case "DELETE /quote/{version}/{reference}":
-        VersionReference = '[' + event.pathParameters.version + ']' + event.pathParameters.reference;
-        VersionReference = VersionReference.replace(/\+/g, ' ');
-        await dynamo.send(
-          new DeleteCommand({
-            TableName: tableName,
-            Key: {
-              VersionReference,
-            },
-          })
-        );
-        body = `Deleted quote: ${event.pathParameters.reference} - ${event.pathParameters.version}`;
-        break;
-      case "GET /quote/{version}/{reference}":
-        console.log("reference:", event.pathParameters.reference);
-        console.log("version:", event.pathParameters.version);
-        VersionReference = '[' + event.pathParameters.version + ']' + event.pathParameters.reference;
-        VersionReference = VersionReference.replace(/\+/g, ' ');
-        console.log("versionReferecnce:", VersionReference);
-        body = await dynamo.send(
-          new GetCommand({
-            TableName: tableName,
-            Key: {
-              VersionReference ,
-            },
-          })
-        );
-        console.log('body', body);
-        body = body.Item;
-        if (body == null)
-          body = {};
-        break;
-      case "GET /quotes":
-        body = await dynamo.send(
-          new ScanCommand({ TableName: tableName })
-        );
-        console.log('body', body);
-        body = body.Items;
-        break;
-      case "PUT /quote":
-        let requestJSON = JSON.parse(event.body);
-        await dynamo.send(
-          new PutCommand({
-            TableName: tableName,
-            Item: {
-              VersionReference: '[' + requestJSON.version + ']' + requestJSON.reference,
-              version: requestJSON.version,
-              reference: requestJSON.reference,
-              paragraph: requestJSON.paragraph
-            },
-          })
-        );
-        body = `Put quote: ${requestJSON.reference} - ${requestJSON.version}`;
-        break;
-      default:
-        throw new Error(`Unsupported route: "${event.routeKey}", parameters: ${ Object.keys(event.pathParameters).join() }, reference: ${event.pathParameters.reference}`);
+    if (event.requestContext.http.method === 'GET') {
+      //console.log("We have GET request");
+      const parts = event.requestContext.http.path.split("/");
+      //console.log("parts:", parts);
+      const [ slash, command, version, reference, ...rest ] = parts;
+      //console.log("command:", command, ", version:", version, ", reference:", reference, ", rest:", rest, ", slash:", slash);
+      switch (command) {
+        case "quote":
+          //console.log("We have specific request");
+          //console.log("reference:", reference);
+          //console.log("version:", version);
+          VersionReference = '[' + version + ']' + reference;
+          VersionReference = VersionReference.replace(/\+/g, ' ');
+          console.log("versionReferecnce:", VersionReference);
+          body = await dynamo.send(
+            new GetCommand({
+              TableName: tableName,
+              Key: {
+                VersionReference ,
+              },
+            })
+          );
+          //console.log('body', body);
+          body = body.Item;
+          if (body == null)
+            body = {};
+          break;
+        case "quotes":
+          //console.log("We have generic request");
+          body = await dynamo.send(
+            new ScanCommand({ TableName: tableName })
+          );
+          //console.log('body', body);
+          body = body.Items;
+          break;
+        default:
+          //console.log("We have unknown request");
+          throw new Error(`Unsupported route: "${event.requestContext.http.path}"`);
+      }
+    } else {
+      //console.log(`We have unsupported method: "${event.requestContext.http.method}"`);
+      throw new Error(`Unsupported method: "${event.requestContext.http.method}"`);
     }
   } catch (err) {
     statusCode = 400;
@@ -88,6 +73,7 @@ export const handler = async (event, context) => {
   } finally {
     body = JSON.stringify(body);
   }
+
 
   return {
     statusCode,

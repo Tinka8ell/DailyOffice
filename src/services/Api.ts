@@ -11,7 +11,8 @@ import type { templateT } from '../components/template/Template'
  * using a library for Rest calls such as https://github.com/sindresorhus/ky
  */
 export class Api {
-    static url = apiConfig.AWS_URI;
+    static url = apiConfig.AWS_LAMBDA_URI;
+    static urlGateway = apiConfig.AWS_URI;
 
     static async getBibleQuoteAsHtml(version: string, search: string) {
         const uri = apiConfig.BIBLE_URI
@@ -22,6 +23,13 @@ export class Api {
         const res = await fetch(biblePassage);
         const text = await res.text();
         return text;
+    }
+
+    static async getBibleQuoteFromAWSGateway(version: string, reference: string) {
+        const url = `${this.urlGateway}/quote/${version}/${reference}`;
+        const res = await fetch(url);
+        const json = await res.json();
+        return json
     }
 
     static async getBibleQuoteFromAWS(version: string, reference: string) {
